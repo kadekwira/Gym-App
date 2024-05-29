@@ -1,0 +1,275 @@
+/* General reset and styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0e0d0d;
+}
+
+/* Header styling */
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+.nav-items {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-items a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .btn {
+  background: #e63946;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.auth-buttons .btn:hover {
+  background: #d62839;
+}
+
+/* Responsive Navbar */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+.menu-toggle .fas {
+  color: #fff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .nav-items {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background: #333;
+      padding: 10px 0;
+  }
+
+  .nav-items.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+}
+/* Hero section styling */
+.hero {
+  color: #fff;
+  padding: 100px 0;
+  text-align: left; 
+  display: flex;
+  align-items: center;
+  background: #000; 
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  z-index: 2;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: right;
+  z-index: 1;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.btn-red {
+  background: #e63946;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.btn-red:hover {
+  background: #d62839;
+}
+
+
+/* Container styling */
+
+.container {
+  width: 80%;
+  margin: 60px auto;
+  
+}
+
+/* Class Cards */
+
+.class-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.class-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: background 0.3s, transform 0.3s;
+  flex: 1 1 calc(25% - 20px);
+  cursor: pointer;
+}
+
+.class-card i {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.class-card:hover {
+  background: #e63946;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Section styling */
+.plans, .testimonials {
+  background: #fff;
+  padding: 50px 0;
+}
+
+.class h2, .plans h2, .testimonials h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.plan-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.plan-card {
+  background: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.plan-card.popular {
+  background: #e63946;
+  color: #fff;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.plan-card ul li {
+  margin: 10px 0;
+}
+
+.plan-card .btn {
+  background: #fff;
+  color: #e63946;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Footer styling */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}

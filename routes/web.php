@@ -14,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// User With Not Prefix
+Route::get('/', function () {
+  return view('user.index');
+});
 
+
+
+
+
+
+// Admin  with prefix
 Route::prefix('admin')->group(function(){
   Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin']);
   Route::get('/data-admin',function(){

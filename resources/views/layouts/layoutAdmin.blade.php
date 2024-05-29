@@ -202,7 +202,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">Gym App</a>
+                        <a href="index.html"> Gym App</a>
                     </div>
                     <ul class="sidebar-menu">
                         {{-- Dashboard --}}
