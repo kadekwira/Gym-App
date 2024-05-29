@@ -28,7 +28,7 @@
 
 
 
-    
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -222,18 +222,46 @@
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i>
                                 <span>Data Master</span></a>
                             <ul class="dropdown-menu">
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-user-shield"></i>Data Admin</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-users"></i>Data Members</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-user-tie"></i>Data Trainer</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-user"></i>Data Trial Harian</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-dumbbell"></i>Data Class</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-medal"></i>Data Tips & Trick</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-eye"></i>Data Review</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-comments"></i>Data Notifications</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-user-shield"></i>Data Admin</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-users"></i>Data Members</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-user-tie"></i>Data Trainer</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-user"></i>Data
+                                        Trial Harian</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-dumbbell"></i>Data Class</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-medal"></i>Data Tips & Trick</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-eye"></i>Data
+                                        Review</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-comments"></i>Data Notifications</a></li>
                             </ul>
                         </li>
                         {{-- end Data Master --}}
-                    
+
+
+                        <!-- Start Features -->
+                        <li class="menu-header">Features</li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i>
+                                <span>Manage Gym</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-calendar"></i>Activity</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-bullhorn"></i>Information Gym</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-credit-card"></i>Transaction</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-file-invoice-dollar"></i>Report Finance</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Features -->
+
+                        
                     </ul>
                 </aside>
             </div>
@@ -276,9 +304,9 @@
     <!-- Template JS File -->
     <script src="/newAdmin/dist/assets/js/scripts.js"></script>
     <script src="/newAdmin/dist/assets/js/custom.js"></script>
-    
-            {{-- new Js --}}
-            @yield('addJavascript')
+
+    {{-- new Js --}}
+    @yield('addJavascript')
 
 </body>
 
