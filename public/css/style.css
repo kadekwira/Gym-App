@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #0e0d0d;
+  background: #222020;
 }
 
 /* Header styling */
@@ -26,6 +26,7 @@ header nav {
   font-size: 24px;
   font-weight: bold;
 }
+
 .nav-items {
   display: flex;
   gap: 15px;
@@ -89,6 +90,7 @@ header nav {
       display: block;
   }
 }
+
 /* Hero section styling */
 .hero {
   color: #fff;
@@ -129,6 +131,7 @@ header nav {
   height: auto;
   object-fit: cover;
 }
+
 .btn-red {
   background: #e63946;
   color: #fff;
@@ -148,7 +151,32 @@ header nav {
 .container {
   width: 80%;
   margin: 60px auto;
+}
+
+/* Section header styling */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  max-width: 400px;
   
+}
+
+.section-description {
+  font-size: 15px;
+  color: #fff;
+  text-align: left; 
+  margin-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  max-width: 400px;
 }
 
 /* Class Cards */
@@ -161,24 +189,41 @@ header nav {
 }
 
 .class-card {
-  background: #fff;
+  background: #333;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius:  8px;
   padding: 20px;
   text-align: center;
   transition: background 0.3s, transform 0.3s;
   flex: 1 1 calc(25% - 20px);
   cursor: pointer;
+  color: #fff;
+  position: relative;
 }
 
 .class-card i {
   font-size: 2em;
   margin-bottom: 10px;
+  color: #fff;
+  position: absolute;
+  top: 10px; 
+  left: 10px;
+}
+
+.class-card h3 {
+  font-size: 1.5em;
+  margin-top: 25px;
+  color: #fff;
+}
+
+.class-card p {
+  font-size: 13px;
+  color: #fff;
 }
 
 .class-card:hover {
-  background: #e63946;
-  color: #fff;
+  background: #ee5d31;
+  color: #333;
   transform: scale(1.05);
 }
 
@@ -225,7 +270,7 @@ header nav {
   padding: 50px 0;
 }
 
-.class h2, .plans h2, .testimonials h2 {
+.plans h2, .testimonials h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #fff;

@@ -21,15 +21,18 @@
 
 <section id="classes" class="class">
     <div class="container">
-        <h2>The Best Programs We Offer For You</h2>
+        <div class="section-header">
+            <h2 class="section-title">The Best Programs We Offer For You</h2>
+            <p class="section-description">Practice anywhere at any time, and explore a variety of exercises that suit your needs. Our programs are designed to help you achieve your fitness goals with ease and flexibility.</p>
+        </div>
         <div class="class-cards">
             <div class="class-card" data-class="strength">
-                <i class="fas fa-dumbbell"></i>
+                <i class="fa-solid fa-dumbbell"></i>
                 <h3>Strength Training</h3>
                 <p>Build muscle strength and endurance with our expert trainers.</p>
             </div>
             <div class="class-card" data-class="yoga">
-                <i class="fas fa-spa"></i>
+                <i class="fa-solid fa-person-yoga"></i>
                 <h3>Body Yoga</h3>
                 <p>Relax and strengthen your body with our yoga sessions.</p>
             </div>
@@ -39,7 +42,7 @@
                 <p>Achieve your bodybuilding goals with customized plans.</p>
             </div>
             <div class="class-card" data-class="weightloss">
-                <i class="fas fa-weight"></i>
+            <i class="fa-solid fa-person-running"></i>
                 <h3>Weight Loss</h3>
                 <p>Effective weight loss programs to get you in shape.</p>
             </div>
@@ -57,12 +60,6 @@
     </div>
 </div>
 
-<section class="trusted-partners">
-    <div class="container">
-        <p>1k More Trusted Companies Partner</p>
-        <img src="{{ asset('assets/img/bener.jpg') }}" alt="Partner Logos">
-    </div>
-</section>
 
 
 
