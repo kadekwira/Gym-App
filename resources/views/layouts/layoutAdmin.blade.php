@@ -245,23 +245,26 @@
 
                         <!-- Start Features -->
                         <li class="menu-header">Features</li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i>
-                                <span>Manage Gym</span></a>
-                            <ul class="dropdown-menu">
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
-                                            class="fas fa-calendar"></i>Activity</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
-                                            class="fas fa-bullhorn"></i>Information Gym</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
-                                            class="fas fa-credit-card"></i>Transaction</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
-                                            class="fas fa-file-invoice-dollar"></i>Report Finance</a></li>
-                            </ul>
-                        </li>
-                        <!-- End Features -->
+                        <li>
+                            <a class="nav-link" href="">
+                                <i class="fas fa-calendar"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a class="nav-link" href="">
+                                <i class="fas fa-bullhorn"></i>
+                                <span>Information Gym</span>
+                            </a>
+                            <a class="nav-link" href="">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Transaction</span>
+                            </a>
+                            <a class="nav-link" href="">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span>Report Finance</span>
+                            </a>
+                            <!-- End Features -->
 
-                        
+
                     </ul>
                 </aside>
             </div>
