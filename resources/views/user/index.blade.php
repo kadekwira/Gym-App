@@ -7,17 +7,36 @@
             <div class="hero-text">
                 <h1>Get Healthy Body with the Perfect Exercises</h1>
                 <p>Join us and start your fitness journey today!</p>
-                <a href="/register" class="btn btn-red">Get Started</a>
-                <a href="https://www.youtube.com/channel/YourChannelID" class="btn btn-video" target="_blank">
-                    <i class="fas fa-play"></i> Watch Videos
-                </a>
+                <div class="group">
+                    <a href="/register" class="btn btn-danger">Join Membership</a>
+                    <a href="https://www.youtube.com/channel/YourChannelID" class="btn btn-video" target="_blank">
+                        <i class="fas fa-play"></i> 
+                        <span>Watch Videos</span>
+                    </a>
+                </div>
+                <section class="stats">
+                    <div class="stat">
+                        <h3>105+</h3>
+                        <p>Expert Trainers</p>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <h3>970+</h3>
+                        <p>Members Joined</p>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <h3>135+</h3>
+                        <p>Fitness Programs</p>
+                    </div>
             </div>
             <div class="hero-image">
-                <img src="{{ asset('assets/img/hero.jpg') }}" alt="Hero Image">
+                <img src="{{ asset('assets/img/test.png') }}" alt="Hero Image">
             </div>
         </div>
     </div>
 </section>
+
 
 <section id="classes" class="class">
     <div class="container">
