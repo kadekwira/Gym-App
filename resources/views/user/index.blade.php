@@ -7,19 +7,38 @@
             <div class="hero-text">
                 <h1>Get Healthy Body with the Perfect Exercises</h1>
                 <p>Join us and start your fitness journey today!</p>
-                <a href="/register" class="btn btn-red">Get Started</a>
-                <a href="https://www.youtube.com/channel/YourChannelID" class="btn btn-video" target="_blank">
-                    <i class="fas fa-play"></i> Watch Videos
-                </a>
+                <div class="group">
+                    <a href="/register" class="btn btn-danger">Join Membership</a>
+                    <a href="https://www.youtube.com/channel/YourChannelID" class="btn btn-video" target="_blank">
+                        <i class="fas fa-play"></i> 
+                        <span>Watch Videos</span>
+                    </a>
+                </div>
+                <section class="stats">
+                    <div class="stat">
+                        <h3>105+</h3>
+                        <p>Expert Trainers</p>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <h3>970+</h3>
+                        <p>Members Joined</p>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <h3>135+</h3>
+                        <p>Fitness Programs</p>
+                    </div>
             </div>
             <div class="hero-image">
-                <img src="{{ asset('assets/img/hero.jpg') }}" alt="Hero Image">
+                <img src="{{ asset('assets/img/test.png') }}" alt="Hero Image">
             </div>
         </div>
     </div>
 </section>
 
-<section id="classes" class="class">
+
+<section  class="class">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">The Best Programs We Offer For You</h2>
@@ -60,21 +79,20 @@
     </div>
 </div>
 
-
-
-
-<section class="plans">
+<section  class="plans">
     <div class="container">
         <h2>Choose The Best Plan</h2>
+        <p>Choose a plan that works best for your fitness goals. Enjoy flexibility in making changes.</p>
         <div class="plan-cards">
             <div class="plan-card">
-                <h3>Beginner</h3>
+                <h3>Discoveri</h3>
                 <p>$99 Per Month</p>
                 <ul>
                     <li>5 Gym Access</li>
-                    <li>Personal Trainer</li>
-                    <li>Standard Options</li>
-                    <li>One Year Membership</li>
+                    <li>Special Events</li>
+                    <li>Basic Training</li>
+                    <li>Group Classes</li>
+                    <li>Customer Support</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -82,10 +100,11 @@
                 <h3>Lifetime</h3>
                 <p>$299 Per Month</p>
                 <ul>
-                    <li>All Gym Access</li>
+                    <li>5 Classes per Week</li>
                     <li>Personal Trainer</li>
-                    <li>VIP Options</li>
+                    <li>Individual Training</li>
                     <li>Lifetime Membership</li>
+                    <li>Physical Examination</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -95,8 +114,9 @@
                 <ul>
                     <li>20 Gym Access</li>
                     <li>Personal Trainer</li>
-                    <li>Premium Options</li>
-                    <li>Five Year Membership</li>
+                    <li>8 Classes per Month</li>
+                    <li>Individual Training</li>
+                    <li>Monthly Fitness Report</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -104,13 +124,48 @@
     </div>
 </section>
 
-<section class="testimonials">
+<section id="testimonials" class="testimonials">
     <div class="container">
-        <h2>What Our Happy Clients Say About Us</h2>
-        <div class="testimonial">
-            <p>"Gym-App has changed my life. The trainers are professional and the atmosphere is great!"</p>
-            <p>- John Doe</p>
+        <div class="testimonial-header">
+            <h2 class="section-title">What Our Happy Clients Say About Us</h2>
+        </div>
+        <div class="testimonial-content">
+            <div class="testimonial-text">
+                <p>Read through the experiences shared by our clients and see how we have helped them achieve their fitness goals.</p>
+            </div>
+            <div class="testimonial-carousel">
+                <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                    <div class="testimonial-author">
+                            <img src="{{ asset('assets/img/profile1.jpg') }}" alt="Client Photo">
+                            <div class="author-info">
+                                <h4>Fatimah Siti</h4>
+                                <p>★★★★★</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are tailored to fit my needs.”</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                    <div class="testimonial-author">
+                            <img src="{{ asset('assets/img/profile2.jpg') }}" alt="Client Photo">
+                            <div class="author-info">
+                                <h4>John Doe</h4>
+                                <p>★★★★★</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>“The best fitness program I've ever joined. The flexibility and variety are unbeatable!”</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control next" onclick="nextSlide()">❯</button>
+            </div>
         </div>
     </div>
 </section>
+
+
 @endsection
