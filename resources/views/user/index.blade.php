@@ -1,6 +1,7 @@
 @extends('layouts-user.app')
 
 @section('content')
+
 <section class="hero">
     <div class="container">
         <div class="hero-content">
@@ -10,7 +11,7 @@
                 <div class="group">
                     <a href="/register" class="btn btn-danger">Join Membership</a>
                     <a href="https://www.youtube.com/channel/YourChannelID" class="btn btn-video" target="_blank">
-                        <i class="fas fa-play"></i> 
+                        <i class="fas fa-play"></i>
                         <span>Watch Videos</span>
                     </a>
                 </div>
@@ -135,4 +136,35 @@
         </div>
     </div>
 </section>
+
+<button class="chatbot-toggler">
+    <span class="material-symbols-outlined">mode_comment</span>
+    <span class="material-symbols-outlined">close</span>
+</button>
+<div id="chatbot" class="chatbot">
+    <!-- Header Chatbot -->
+    <header id="chatbot-header">
+        <h2>Chatbot</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+    </header>
+
+    <!-- Title Chatbot -->
+    <ul id="chatbox" class="chatbox">
+        <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>
+                Halo, <br />
+                Berikan pertanyaan Anda!
+            </p>
+        </li>
+    </ul>
+
+    <!-- Chat Input -->
+    <div id="chatbot-input" class="chat-input">
+        <textarea placeholder="Berikan pertanyaan.." required></textarea>
+        <span id="send-btn" class="material-symbols-outlined">send</span>
+    </div>
+</div>
+
+
 @endsection
