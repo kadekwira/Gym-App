@@ -39,22 +39,17 @@
 </section>
 
 
-<section class="class">
+<section id="classes" class="class">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">The Best Programs We Offer For You</h2>
-            <p class="section-description">Practice anywhere at any time, and explore a variety of exercises that suit
-                your needs. Our programs are designed to help you achieve your fitness goals with ease and flexibility.
-            </p>
-        </div>
+        <h2>The Best Programs We Offer For You</h2>
         <div class="class-cards">
             <div class="class-card" data-class="strength">
-                <i class="fa-solid fa-dumbbell"></i>
+                <i class="fas fa-dumbbell"></i>
                 <h3>Strength Training</h3>
                 <p>Build muscle strength and endurance with our expert trainers.</p>
             </div>
             <div class="class-card" data-class="yoga">
-                <i class="fa-solid fa-person-yoga"></i>
+                <i class="fas fa-spa"></i>
                 <h3>Body Yoga</h3>
                 <p>Relax and strengthen your body with our yoga sessions.</p>
             </div>
@@ -64,7 +59,7 @@
                 <p>Achieve your bodybuilding goals with customized plans.</p>
             </div>
             <div class="class-card" data-class="weightloss">
-                <i class="fa-solid fa-person-running"></i>
+                <i class="fas fa-weight"></i>
                 <h3>Weight Loss</h3>
                 <p>Effective weight loss programs to get you in shape.</p>
             </div>
@@ -82,20 +77,27 @@
     </div>
 </div>
 
+<section class="trusted-partners">
+    <div class="container">
+        <p>1k More Trusted Companies Partner</p>
+        <img src="{{ asset('assets/img/bener.jpg') }}" alt="Partner Logos">
+    </div>
+</section>
+
+
+
 <section class="plans">
     <div class="container">
         <h2>Choose The Best Plan</h2>
-        <p>Choose a plan that works best for your fitness goals. Enjoy flexibility in making changes.</p>
         <div class="plan-cards">
             <div class="plan-card">
-                <h3>Discoveri</h3>
+                <h3>Beginner</h3>
                 <p>$99 Per Month</p>
                 <ul>
                     <li>5 Gym Access</li>
-                    <li>Special Events</li>
-                    <li>Basic Training</li>
-                    <li>Group Classes</li>
-                    <li>Customer Support</li>
+                    <li>Personal Trainer</li>
+                    <li>Standard Options</li>
+                    <li>One Year Membership</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -103,11 +105,10 @@
                 <h3>Lifetime</h3>
                 <p>$299 Per Month</p>
                 <ul>
-                    <li>5 Classes per Week</li>
+                    <li>All Gym Access</li>
                     <li>Personal Trainer</li>
-                    <li>Individual Training</li>
+                    <li>VIP Options</li>
                     <li>Lifetime Membership</li>
-                    <li>Physical Examination</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -117,9 +118,8 @@
                 <ul>
                     <li>20 Gym Access</li>
                     <li>Personal Trainer</li>
-                    <li>8 Classes per Month</li>
-                    <li>Individual Training</li>
-                    <li>Monthly Fitness Report</li>
+                    <li>Premium Options</li>
+                    <li>Five Year Membership</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -127,54 +127,17 @@
     </div>
 </section>
 
-<section id="testimonials" class="testimonials">
+<section class="testimonials">
     <div class="container">
-        <div class="testimonial-header">
-            <h2 class="section-title">What Our Happy Clients Say About Us</h2>
-        </div>
-        <div class="testimonial-content">
-            <div class="testimonial-text">
-                <p>Read through the experiences shared by our clients and see how we have helped them achieve their
-                    fitness goals.</p>
-            </div>
-            <div class="testimonial-carousel">
-                <button class="carousel-control prev" onclick="prevSlide()">❮</button>
-                <div class="testimonial-cards">
-                    <div class="testimonial-card">
-                        <div class="testimonial-author">
-                            <img src="{{ asset('assets/img/profile1.jpg') }}" alt="Client Photo">
-                            <div class="author-info">
-                                <h4>Fatimah Siti</h4>
-                                <p>★★★★★</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are
-                                tailored to fit my needs.”</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-author">
-                            <img src="{{ asset('assets/img/profile2.jpg') }}" alt="Client Photo">
-                            <div class="author-info">
-                                <h4>John Doe</h4>
-                                <p>★★★★★</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>“The best fitness program I've ever joined. The flexibility and variety are unbeatable!”
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control next" onclick="nextSlide()">❯</button>
-            </div>
+        <h2>What Our Happy Clients Say About Us</h2>
+        <div class="testimonial">
+            <p>"Gym-App has changed my life. The trainers are professional and the atmosphere is great!"</p>
+            <p>- John Doe</p>
         </div>
     </div>
 </section>
 
-
-<button class="chatbot-toggler">
+<button id="chatbot-toggler" class="chatbot-toggler">
     <span class="material-symbols-outlined">mode_comment</span>
     <span class="material-symbols-outlined">close</span>
 </button>
@@ -202,6 +165,7 @@
         <span id="send-btn" class="material-symbols-outlined">send</span>
     </div>
 </div>
+
 
 
 @endsection
