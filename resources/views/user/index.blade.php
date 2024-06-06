@@ -39,11 +39,13 @@
 </section>
 
 
-<section  class="class">
+<section class="class">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">The Best Programs We Offer For You</h2>
-            <p class="section-description">Practice anywhere at any time, and explore a variety of exercises that suit your needs. Our programs are designed to help you achieve your fitness goals with ease and flexibility.</p>
+            <p class="section-description">Practice anywhere at any time, and explore a variety of exercises that suit
+                your needs. Our programs are designed to help you achieve your fitness goals with ease and flexibility.
+            </p>
         </div>
         <div class="class-cards">
             <div class="class-card" data-class="strength">
@@ -62,7 +64,7 @@
                 <p>Achieve your bodybuilding goals with customized plans.</p>
             </div>
             <div class="class-card" data-class="weightloss">
-            <i class="fa-solid fa-person-running"></i>
+                <i class="fa-solid fa-person-running"></i>
                 <h3>Weight Loss</h3>
                 <p>Effective weight loss programs to get you in shape.</p>
             </div>
@@ -80,7 +82,7 @@
     </div>
 </div>
 
-<section  class="plans">
+<section class="plans">
     <div class="container">
         <h2>Choose The Best Plan</h2>
         <p>Choose a plan that works best for your fitness goals. Enjoy flexibility in making changes.</p>
@@ -132,13 +134,14 @@
         </div>
         <div class="testimonial-content">
             <div class="testimonial-text">
-                <p>Read through the experiences shared by our clients and see how we have helped them achieve their fitness goals.</p>
+                <p>Read through the experiences shared by our clients and see how we have helped them achieve their
+                    fitness goals.</p>
             </div>
             <div class="testimonial-carousel">
                 <button class="carousel-control prev" onclick="prevSlide()">❮</button>
                 <div class="testimonial-cards">
                     <div class="testimonial-card">
-                    <div class="testimonial-author">
+                        <div class="testimonial-author">
                             <img src="{{ asset('assets/img/profile1.jpg') }}" alt="Client Photo">
                             <div class="author-info">
                                 <h4>Fatimah Siti</h4>
@@ -146,11 +149,12 @@
                             </div>
                         </div>
                         <div class="testimonial-content">
-                            <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are tailored to fit my needs.”</p>
+                            <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are
+                                tailored to fit my needs.”</p>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                    <div class="testimonial-author">
+                        <div class="testimonial-author">
                             <img src="{{ asset('assets/img/profile2.jpg') }}" alt="Client Photo">
                             <div class="author-info">
                                 <h4>John Doe</h4>
@@ -158,7 +162,8 @@
                             </div>
                         </div>
                         <div class="testimonial-content">
-                            <p>“The best fitness program I've ever joined. The flexibility and variety are unbeatable!”</p>
+                            <p>“The best fitness program I've ever joined. The flexibility and variety are unbeatable!”
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -168,7 +173,7 @@
     </div>
 </section>
 
-<<<<<<< HEAD
+
 <button class="chatbot-toggler">
     <span class="material-symbols-outlined">mode_comment</span>
     <span class="material-symbols-outlined">close</span>
@@ -200,7 +205,3 @@
 
 
 @endsection
-=======
-
-@endsection
->>>>>>> bd43b9f726de8817dfdd32c65b4ae751cb9ca3d6
