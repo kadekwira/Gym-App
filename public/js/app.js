@@ -43,31 +43,49 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-let currentSlide = 0;
+document.getElementById('toggleDuration').addEventListener('click', function() {
+  var monthlyCards = document.querySelector('.plan-cards.monthly');
+  var annualCards = document.querySelector('.plan-cards.annual');
+
+  if (this.textContent === 'Monthly') {
+      this.textContent = 'Annual';
+      monthlyCards.style.display = 'none';
+      annualCards.style.display = 'flex';
+  } else {
+      this.textContent = 'Monthly';
+      monthlyCards.style.display = 'flex';
+      annualCards.style.display = 'none';
+  }
+});
+
+
+let currentIndex = 0;
 
 function showSlide(index) {
-    const slides = document.querySelectorAll('.testimonial-card');
-    const totalSlides = slides.length;
-    slides[currentSlide].classList.remove('active');
-    if (index >= totalSlides) {
-        currentSlide = 0;
-    } else if (index < 0) {
-        currentSlide = totalSlides - 1;
-    } else {
-        currentSlide = index;
-    }
-    slides[currentSlide].classList.add('active');
+  const slides = document.querySelectorAll('.testimonial-card');
+  if (index >= slides.length) {
+    currentIndex = 0;
+  } else if (index < 0) {
+    currentIndex = slides.length - 1;
+  } else {
+    currentIndex = index;
+  }
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentIndex);
+  });
 }
 
 function nextSlide() {
-    showSlide(currentSlide + 1);
+  showSlide(currentIndex + 1);
 }
 
 function prevSlide() {
-    showSlide(currentSlide - 1);
+  showSlide(currentIndex - 1);
 }
 
-// Initialize the first slide as active
-document.addEventListener('DOMContentLoaded', () => {
-    showSlide(currentSlide);
-});
+document.querySelector('.carousel-control.next').addEventListener('click', nextSlide);
+document.querySelector('.carousel-control.prev').addEventListener('click', prevSlide);
+
+// Show the first slide initially
+showSlide(currentIndex);

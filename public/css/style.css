@@ -256,18 +256,89 @@ nav .button-signIn:hover{
 }
 
 
-/* Container styling */
+/* Konten Trial */
+.trial-container {
+  padding: 60px 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #000; 
+  margin-bottom: 20px;
+  gap: 20px;
+}
 
+.trial-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
 
+.trial-container .image {
+  position: relative;
+  margin-right: 20px;
+}
+
+.trial-container .image img {
+  border-radius: 30px;
+  width: 80%;
+  padding-top: 20px;
+}
+
+.trial-container .image .badge {
+  position: absolute;
+  bottom: 50px;
+  left: 350px;
+  background-color: #fff;
+  color: #000;
+  padding: 10px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.trial-container .text-content {
+  max-width: 600px;
+  margin-left: 50px;
+}
+
+.trial-container .text-content h1 {
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 10px;
+
+}
+
+.trial-container .text-content p {
+  margin-bottom: 15px;
+  text-align: left;
+
+}
+
+.trial-container .text-content .btn {
+  background-color: #f04d4d;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+ 
+}
+
+.trial-container .text-content .btn:hover {
+  background-color: #d43d3d;
+}
 
 /* Class Cards */
 .class {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 80%;
-  margin: 0 auto;
+  padding: 20px;
   background-color: #000; 
+  margin-bottom: 20px;
   gap: 20px;
 }
 
@@ -279,14 +350,15 @@ nav .button-signIn:hover{
   margin: 0;
 }
 
-.class p {
-  font-size: 15px;
+.section-header p {
+  font-size: 13px;
   color: white;
   text-align: left;
-  margin: 0 ; 
-  padding: 0;
+  padding-top: 0;
   max-width: 400px;
+  margin-left: 700px; 
 }
+
 
 .class-cards {
   display: flex;
@@ -299,7 +371,7 @@ nav .button-signIn:hover{
 .class-card {
   background: #333;
   border: 1px solid #ddd;
-  border-radius:  8px;
+  border-radius:  10px;
   padding: 20px;
   text-align: center;
   transition: background 0.3s, transform 0.3s;
@@ -318,7 +390,17 @@ nav .button-signIn:hover{
   top: 10px; 
   left: 10px;
 }
-
+.class-card img {
+  width: 40px; 
+  height: 40px; 
+  margin-bottom: 20px;
+  object-fit: cover;
+  position: absolute; 
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  filter: brightness(0) invert(1);
+}
 .class-card h3 {
   font-size: 25px;
   font-weight: 600;
@@ -391,12 +473,35 @@ nav .button-signIn:hover{
   display: flex;
   justify-content: center; 
   width: 80%; 
+  margin: 10px;
 }
+
+.plan-duration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.duration-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.duration-btn:hover {
+  background-color: #e63946;
+  color: #fff;
+}
+
 .plan-cards {
   display: flex;
   justify-content: space-between;
   width: 80%;
-  gap: 20px;
+  gap: 40px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -407,7 +512,7 @@ nav .button-signIn:hover{
   text-align: center;
  }
  p {
-  font-size: 20px;
+  font-size: 18Spx;
   color: white;
   text-align: center;
   padding-bottom: 20px;
@@ -431,10 +536,10 @@ nav .button-signIn:hover{
 }
 
 .plan-card ul {
-  list-style: none; /* Remove default list styling */
+  list-style: none; 
   padding: 0;
   margin: 0;
-  text-align: justify; /* Justify text in ul */
+  text-align: justify; 
   background: transparent;
 }
 .plan-card li{
@@ -442,17 +547,17 @@ background: transparent;
 }
 .plan-card ul li {
   position: relative;
-  padding-left: 25px; /* Space for custom bullet */
-  margin-bottom: 10px; /* Space between items */
+  padding-left: 25px; 
+  margin-bottom: 10px; 
   
 }
 
 .plan-card ul li:before {
-  content: '\2713'; /* Custom bullet character */
+  content: '\2713'; 
   position: absolute;
   left: 0;
-  color: white; /* Bullet color */
-  font-size: 20px; /* Ukuran simbol ceklis */
+  color: white; 
+  font-size: 20px; 
   line-height: 1;
 }
 
@@ -535,8 +640,55 @@ background: transparent;
   flex: 1;
   margin-right: 20px;
   font-size: 20px;
+  margin: 0;
+   
+}
+.caterpillar {
+  display: flex;
+  align-items: center;
 }
 
+.circle {
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+}
+
+.circle:not(:first-child) {
+  margin-left: -10px; 
+}
+.plus-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust gap as needed */
+}
+
+.plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px; 
+}
+
+.star {
+  font-size: 24px; 
+}
+
+.text {
+  font-size: 18px; 
+}
 .testimonial-carousel {
   flex: 2;
   position: relative;
@@ -548,7 +700,7 @@ background: transparent;
 
 .testimonial-card-wrapper {
   display: flex;
-  width: 300px; /* Ensure it only shows one card at a time */
+  width: 300px; 
   overflow: hidden;
 }
 
@@ -563,20 +715,16 @@ background: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-right: 20px;
   flex-shrink: 0;
-  display: none; /* Hide all cards initially */
+  display: none; 
 }
 
 .testimonial-card.active {
-  display: block; /* Show the active card */
+  display: block; 
 }
 
 .testimonial-content  {
   font-size: 20px;
   margin-bottom: 20px;
-  background: transparent;
-}
-
-.testimonial-content {
   background: transparent;
 }
 
@@ -609,7 +757,7 @@ background: transparent;
 
 .author-info p {
   margin: 0;
-  color: #ffcc00; /* Gold color for stars */
+  color: #ffcc00; 
   background: transparent;
 }
 
@@ -632,11 +780,142 @@ background: transparent;
   right: -30px;
 }
 
-
 /* Footer styling */
 footer {
-  background: #333;
   color: #fff;
+  text-align: left;
+  padding: 40px 0;
+  font-size: 14px;
+  background-color: #000;
+}
+
+footer .container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer .footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+footer h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+  color: #ee5d31;
+}
+
+footer .footer-column form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+footer .footer-column input[type="email"] {
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+}
+
+footer .footer-column button {
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #ee5d31;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+footer .footer-column button:hover {
+  background-color: #e63946;
+}
+
+.footer-bottom {
   text-align: center;
-  padding: 10px 0;
+  border-top: 1px solid #444;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.footer-bottom .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-bottom {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #aaa;
+}
+
+.footer-bottom .social-icons {
+  margin-top: 10px;
+}
+
+.footer-bottom .social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-bottom .social-icons a:hover {
+  color: #ee5d31;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .footer-column {
+    margin-bottom: 20px;
+  }
+
+  footer .footer-column form {
+    flex-direction: column;
+  }
+
+  footer .footer-column input[type="email"],
+  footer .footer-column button {
+    border-radius: 5px;
+    margin: 5px 0;
+    width: 100%;
+  }
 }
