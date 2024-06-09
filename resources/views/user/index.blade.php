@@ -42,7 +42,7 @@
         <div class="trial-content">
             <div class="image">
                 <img src="{{ asset('assets/img/trial.jpg') }}" alt="Professional Trainer">
-                <div class="badge">Professional Trainer</div>
+                <div class="badge"><img src="{{ asset('assets/img/dumble.png') }}" alt=""> Professional Trainer</div>
             </div>
             <div class="text-content">
                 <h1>Get Ready To Reach Your Fitness Goals</h1>
@@ -214,10 +214,10 @@
                                 <h4>Fatimah Siti</h4>
                                 <p>★★★★★</p>
                             </div>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are tailored to fit my needs.”</p>
-                        </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are tailored to fit my needs.”</p>
+                            </div>
                     </div>
                     <div class="testimonial-card">
                     <div class="testimonial-author">

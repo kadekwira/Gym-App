@@ -50,7 +50,7 @@
         <i class="fa-solid fa-dumbbell"></i>
         <span>FITNES</span>
     </h4>
-      <p>&copy; 2023 FITNES. All rights reserved.</p>
+      <p>&copy; 2024 FITNES. All rights reserved.</p>
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
