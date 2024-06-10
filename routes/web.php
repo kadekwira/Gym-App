@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrialController;
 use App\Http\Controllers\DashboardController;
 
@@ -28,9 +29,7 @@ Route::get('/', function () {
 // Admin  with prefix
 Route::prefix('admin')->group(function(){
   Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin']);
-  Route::get('/data-admin',function(){
-    return view('admin.dataAdmin.index');
-  });
+  Route::resource('/data-admin',AdminController::class);
   Route::get('/data-member',function(){
     return view('admin.dataMember.index');
   });

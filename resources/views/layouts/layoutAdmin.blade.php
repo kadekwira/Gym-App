@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/newAdmin/dist/assets/css/components.css">
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script src="https://kit.fontawesome.com/2f708729c7.js" crossorigin="anonymous"></script>
 
 
 

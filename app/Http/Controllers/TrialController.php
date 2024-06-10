@@ -54,7 +54,8 @@ class TrialController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = TrialDay::find($id);
+        return view('admin.dataTrial.edit',compact(['data']));
     }
 
     /**
@@ -62,7 +63,16 @@ class TrialController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $trialday =  TrialDay::findOrFail($id);
+        $trialday->update([
+            "full_name"=>$request->full_name,
+            "email"=>$request->email,
+            "phone"=>$request->phone,
+            "date_trial"=>$request->date_trial,
+            "start_trial"=>$request->start_trial,
+            "end_trial"=>$request->end_trial,
+        ]);
+        return redirect(route('data-trial.index'))->with('success','Data Berhasil Di Update');
     }
 
     /**
@@ -70,6 +80,9 @@ class TrialController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $trialday = TrialDay::findOrFail($id);
+        $trialday->delete();
+        
+         return response()->json(['success' => 'Data berhasil dihapus']);
     }
 }

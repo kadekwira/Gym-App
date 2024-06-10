@@ -44,9 +44,11 @@
                     <td>{{$data->start_trial}}</td> 
                     <td>{{$data->end_trial}}</td> 
                     <td>
-                      <a href="#" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                      <a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                      <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-trash"></i></a>
+                      <a href="https://wa.me/+62{{$data->phone}}/?text=HI! Tunjukan Pesan ini ke office gym! %0A Nama : {{$data->full_name}} %0A Date Trial : {{$data->date_trial}} %0A Start Trial : {{$data->start_trial}} %0A End Trial : {{$data->end_trial}}" target="_blank" class="btn btn-icon btn-success"><i class="fa-brands fa-whatsapp"></i></a>
+
+                      <a href="{{route('data-trial.edit',$data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                      <a onclick="confirmDelete(this)" data-url="{{route('data-trial.destroy',$data->id)}}" class="btn btn-icon btn-danger text-white"><i class="fas fa-trash"></i></a>
+                    </form>
                     </td>
                   </tr>
                   @php
@@ -74,6 +76,7 @@
 @endsection
 
 @section('addJavascript')
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/datatables.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js')}}"></script>
@@ -83,5 +86,39 @@
   $(function() {
     $('#tableDataAdmin').DataTable()
   })
+</script>
+<script>
+  confirmDelete = function(button) {
+    let url = $(button).data('url');
+    swal({
+      title: 'Konfirmasi Hapus',
+      text: 'Apakah Kamu Yakin Ingin Menghapus Data Ini?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then(function(value) {
+      if (value) {
+        $.ajax({
+          url: url,
+          type: 'DELETE',
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          success: function(result) {
+            swal('Data berhasil dihapus!', {
+              icon: 'success',
+            }).then(() => {
+              location.reload();
+            });
+          },
+          error: function(xhr) {
+            swal('Data gagal dihapus!', {
+              icon: 'error',
+            });
+          }
+        });
+      }
+    });
+  }
 </script>
 @endsection
