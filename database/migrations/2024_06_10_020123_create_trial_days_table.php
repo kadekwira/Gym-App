@@ -12,14 +12,11 @@ return new class extends Migration {
     {
         Schema::create('trial_days', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->unsignedBigInteger('id_class');
-            $table->foreign('id_class')->references('id')->on('classes');
-            $table->string('class_name');
             $table->date('date_trial');
             $table->timestamp('start_trial')->nullable();
             $table->timestamp('end_trial')->nullable();
+            $table->string('phone');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

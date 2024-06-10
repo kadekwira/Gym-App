@@ -12,13 +12,9 @@ return new class extends Migration {
     {
         Schema::create('financial_gyms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_transactions');
-            $table->foreign('id_transactions')->references('id')->on('transactions');
+            $table->integer('id_transaction');
             $table->date('date');
-            $table->string('category');
-            $table->string('payment_method');
-            $table->integer('total_transaction');
-            $table->integer('total_financial');
+            $table->integer('amount');
             $table->timestamps();
         });
     }

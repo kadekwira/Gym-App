@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('trainers', function (Blueprint $table) {
             $table->id();
             $table->string('trainer_name');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('trainer_photo');
             $table->string('phone_number');
             $table->string('address');

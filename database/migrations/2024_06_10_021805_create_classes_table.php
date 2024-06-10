@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('class_name');
             $table->string('description');
             $table->string('facility');
-            $table->decimal('class_price', 9, 0);
-            $table->string('time_operational', 5);
+            $table->decimal('class_price', 9, 0)->nullable();
+            $table->integer('trainer_id');
+            $table->date('schedule');
             $table->integer('duration_minutes');
             $table->integer('capacity');
+            $table->enum('status',['active', 'inactive']);
             $table->timestamps();
         });
     }
