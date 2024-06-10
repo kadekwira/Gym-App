@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrialController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,7 @@ Route::prefix('admin')->group(function(){
   Route::get('/data-trainer',function(){
     return view('admin.dataTrainer.index');
   });
-  Route::get('/data-trial',function(){
-    return view('admin.dataTrial.index');
-  });
+  Route::resource('/data-trial',TrialController::class);
   Route::get('/data-class',function(){
     return view('admin.dataClass.index');
   });

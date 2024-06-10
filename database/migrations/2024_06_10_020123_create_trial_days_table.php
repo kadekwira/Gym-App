@@ -13,9 +13,10 @@ return new class extends Migration {
         Schema::create('trial_days', function (Blueprint $table) {
             $table->id();
             $table->date('date_trial');
-            $table->timestamp('start_trial')->nullable();
-            $table->timestamp('end_trial')->nullable();
+            $table->time('start_trial')->nullable();
+            $table->time('end_trial')->nullable();
             $table->string('phone');
+            $table->string('full_name');
             $table->string('email')->unique();
             $table->timestamps();
         });

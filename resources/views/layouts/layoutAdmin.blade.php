@@ -285,6 +285,7 @@
 
 
 
+    @include('sweetalert::alert')
     <!-- General JS Scripts -->
     <script src="/newAdmin/dist/assets/modules/jquery.min.js"></script>
     <script src="/newAdmin/dist/assets/modules/popper.js"></script>
