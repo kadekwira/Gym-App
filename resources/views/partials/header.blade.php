@@ -20,6 +20,6 @@
         <a href="">Class</a>
         <a href="">Membership</a>
         <a href="">Testimonial</a>
-        <a href="" class="button-signIn">Sign In</a>
+        <a href="login.blade.php" class="button-signIn">Sign In</a>
     </nav>
  </header>
