@@ -289,14 +289,10 @@ nav .button-signIn:hover{
 
 .trial-container .image .badge {
   position: absolute;
-<<<<<<< HEAD
-
-=======
   width:35%;
   height:fit-content;
   bottom: 30px;
   left: 350px;
->>>>>>> 2051647a76ae5dabb07f445d20a173f845b08a5e
   background-color: #fff;
   color: #000;
   padding: 10px;
