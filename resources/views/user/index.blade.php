@@ -52,6 +52,11 @@
                 <a href="#" class="btn">Free Trial Today</a>
             </div>
         </div>
+        <!-- QR Code Section -->
+        <div class="qr-code-section text-center mt-5">
+            <h2>Scan to Join Our Free Trial</h2>
+            <img src="{{ asset('assets/img/qrcode.png') }}" alt="QR Code" class="img-fluid">
+        </div>
     </div>
 </section>
 
@@ -92,20 +97,23 @@
         </div>
     </div>
 </div>
-
-<section  class="plans">
+<section class="plans">
     <div class="container">
         <h2>Choose The Best Plan</h2>
         <p>Choose a plan that works best for your fitness goals. Enjoy flexibility in making changes.</p>
-        <div class="plan-cards">
+        <div class="plan-duration">
+            <button class="duration-btn" id="toggleDuration">Monthly</button>
+        </div>
+        <div class="plan-cards monthly">
             <div class="plan-card">
-                <h3>Discoveri</h3>
+                <h3>Discover</h3>
                 <p>$99 Per Month</p>
                 <ul>
                     <li>5 Gym Access</li>
-                    <li>Personal Trainer</li>
-                    <li>Standard Options</li>
-                    <li>One Year Membership</li>
+                    <li>Special Events</li>
+                    <li>Basic Training</li>
+                    <li>Group Classes</li>
+                    <li>Customer Support</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -113,10 +121,11 @@
                 <h3>Lifetime</h3>
                 <p>$299 Per Month</p>
                 <ul>
-                    <li>All Gym Access</li>
+                    <li>5 Classes per Week</li>
                     <li>Personal Trainer</li>
-                    <li>VIP Options</li>
+                    <li>Individual Training</li>
                     <li>Lifetime Membership</li>
+                    <li>Physical Examination</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -126,8 +135,9 @@
                 <ul>
                     <li>20 Gym Access</li>
                     <li>Personal Trainer</li>
-                    <li>Premium Options</li>
-                    <li>Five Year Membership</li>
+                    <li>8 Classes per Month</li>
+                    <li>Individual Training</li>
+                    <li>Monthly Fitness Report</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
@@ -149,7 +159,6 @@
             <h3>Lifetime</h3>
                 <p>$2999 Per Year</p>
                 <ul>
-                    <li>5 Personal Training Sessions per Week</li>
                     <li>Dedicated Personal Trainer</li>
                     <li>Customized Nutrition Plan</li>
                     <li>Lifetime Membership</li>

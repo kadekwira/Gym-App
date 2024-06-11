@@ -289,7 +289,7 @@ nav .button-signIn:hover{
 .trial-container .image .badge {
   position: absolute;
   bottom: 50px;
-  left: 350px;
+  left: 320px;
   background-color: #fff;
   color: #000;
   padding: 10px 10px;
@@ -337,6 +337,51 @@ nav .button-signIn:hover{
 .trial-container .text-content .btn:hover {
   background-color: #d43d3d;
 }
+
+/* CSS untuk QR Code Section */
+.qr-code-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.qr-code-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.qr-code-section img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .qr-code-section h2 {
+      font-size: 20px;
+  }
+
+  .qr-code-section img {
+      max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qr-code-section h2 {
+      font-size: 18px;
+  }
+
+  .qr-code-section img {
+      max-width: 120px;
+  }
+}
+
 
 /* Class Cards */
 .class {
@@ -788,6 +833,7 @@ background: transparent;
   position: absolute;
   right: -30px;
 }
+
 
 /* Footer styling */
 footer {
