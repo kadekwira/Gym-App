@@ -43,7 +43,10 @@
         <div class="trial-content">
             <div class="image">
                 <img src="{{ asset('assets/img/trial.jpg') }}" alt="Professional Trainer">
-                <div class="badge"><img src="{{ asset('assets/img/dumble.png') }}" alt=""> Professional Trainer</div>
+                <div class="badge">
+                    <img src="{{ asset('assets/img/dumble.png') }}" alt="">
+                    <span>Professional Trainer</span>
+                </div>
             </div>
             <div class="text-content">
                 <h1>Get Ready To Reach Your Fitness Goals</h1>
@@ -63,6 +66,7 @@
 <section id="classes" class="class">
     <div class="container">
         <h2>The Best Programs We Offer For You</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione iusto, enim saepe mollitia vero labore omnis illum totam! Accusamus.</p>
         <div class="class-cards">
             <div class="class-card" data-class="strength">
                 <i class="fas fa-dumbbell"></i>
@@ -70,7 +74,7 @@
                 <p>Build muscle strength and endurance with our expert trainers.</p>
             </div>
             <div class="class-card" data-class="yoga">
-                <i class="fa-solid fa-person-yoga"></i>
+                <i class="fa-solid fa-person-praying"></i>
                 <h3>Body Yoga</h3>
                 <p>Relax and strengthen your body with our yoga sessions.</p>
             </div>

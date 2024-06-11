@@ -5,12 +5,11 @@
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background: #0e0d0d;
 }
 
 /* Header styling */
 header {
-  background: #333;
+  background: transparent;
   color: #fff;
   padding: 10px 0;
 }
@@ -216,7 +215,6 @@ nav .button-signIn:hover{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
   margin: 0 auto;
 }
 
@@ -229,6 +227,9 @@ nav .button-signIn:hover{
 .hero-text {
   flex: 1;
   z-index: 2;
+}
+.hero-text p{
+  text-align: left;
 }
 
 .hero-image {
@@ -288,22 +289,30 @@ nav .button-signIn:hover{
 
 .trial-container .image .badge {
   position: absolute;
-  bottom: 50px;
-  left: 320px;
+<<<<<<< HEAD
+
+=======
+  width:35%;
+  height:fit-content;
+  bottom: 30px;
+  left: 350px;
+>>>>>>> 2051647a76ae5dabb07f445d20a173f845b08a5e
   background-color: #fff;
   color: #000;
-  padding: 10px 10px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 10px;
   font-size: 14px;
   font-weight: bold;
   display: flex;
+  justify-content: center;
   align-items: center;
+  gap:20px;
 }
 .trial-container .image .badge img {
-  margin-right: 15px;
   background: transparent;
   width: 35px;
-  filter: sepia(1) saturate(10) hue-rotate(10deg) brightness(1.2);
+  align-self: center;
+  margin-top: -10px;
 }
 .trial-container .text-content {
   max-width: 600px;
@@ -312,7 +321,7 @@ nav .button-signIn:hover{
 
 .trial-container .text-content h1 {
   font-size: 35px;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 10px;
 
 }
@@ -324,7 +333,7 @@ nav .button-signIn:hover{
 }
 
 .trial-container .text-content .btn {
-  background-color: #f04d4d;
+  background-color: #F2212F !important;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -334,9 +343,6 @@ nav .button-signIn:hover{
  
 }
 
-.trial-container .text-content .btn:hover {
-  background-color: #d43d3d;
-}
 
 /* CSS untuk QR Code Section */
 .qr-code-section {
@@ -390,27 +396,21 @@ nav .button-signIn:hover{
   align-items: flex-start;
   padding: 20px;
   background-color: #000; 
-  /* margin-bottom: 20px; */
+  padding-top: 100px;
+  padding-bottom: 100px;
   gap: 20px;
 }
 
 .class h2 {
   font-size: 35px;
   color: white;
-  font-weight: 700;
-  max-width: 400px;
-  margin: 0;
+  font-weight: 700;  
 }
 
-.section-header p {
-  font-size: 13px;
-  color: white;
-  text-align: left;
-  padding-top: 0;
-  max-width: 400px;
-  margin-left: 700px; 
-}
 
+.class p{
+  margin-bottom: 50px;
+}
 
 .class-cards {
   display: flex;
@@ -422,10 +422,8 @@ nav .button-signIn:hover{
 
 .class-card {
   background: #333;
-  border: 1px solid #ddd;
   border-radius:  10px;
   padding: 20px;
-  text-align: center;
   transition: background 0.3s, transform 0.3s;
   flex: 1 1 calc(25% - 20px);
   cursor: pointer;
@@ -434,23 +432,17 @@ nav .button-signIn:hover{
 }
 
 .class-card i {
-  font-size: 30px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 10px;
   color: #fff;
+  text-align: left !important;
   background: transparent;
-  position: absolute;
-  top: 10px; 
-  left: 10px;
+
 }
 .class-card img {
-  width: 40px; 
-  height: 40px; 
-  margin-bottom: 20px;
-  object-fit: cover;
-  position: absolute; 
-  top: 10px;
-  left: 10px;
-  background: transparent;
+  width: 50px; 
+  height: 50px; 
+  margin-bottom: 10px;
   filter: brightness(0) invert(1);
 }
 .class-card h3 {
@@ -464,6 +456,7 @@ nav .button-signIn:hover{
 .class-card p {
   font-size: 15px;
   color: #fff;
+  text-align: left;
   background: transparent;
 }
 
@@ -573,9 +566,8 @@ nav .button-signIn:hover{
  
 .plan-card {
   background: #333;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 10px;
+  padding: 15px 20px;
   text-align: center;
   transition: background 0.2s, transform 0.2s;
   flex: 1 ;
@@ -626,22 +618,19 @@ background: transparent;
 }
 
 .plan-card .btn {
-  background: #fff;
-  color: #e63946;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
   padding: 10px 20px;
   text-decoration: none;
   display: inline-block;
   margin-top: 20px;
 }
 
-.plan-card .btn {
-  background: #e63946;
-  color: #fff;
-}
 
 .plan-card:hover .btn {
   background: #fff;
-  color: #e63946;
+  color: #ee5d31;
 }
 
 /* Section styling */

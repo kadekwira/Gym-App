@@ -9,7 +9,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <a href="#" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
+            <a href="{{route('data-trial.create')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -17,38 +17,44 @@
                 <thead>                                 
                   <tr class="text-center">
                     <th >
-                      #
+                      No
                     </th>
-                    <th>Task Name</th>
-                    <th>Progress</th>
-                    <th>Members</th>
-                    <th>Due Date</th>
-                    <th>Status</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date trial</th>
+                    <th>Strart trial</th>
+                    <th>End trial</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>                                 
+                <tbody> 
+                  @php
+                      $no=1;
+                  @endphp                       
+                  @foreach ($datas as $data)                      
                   <tr class="text-center">
                     <td>
-                      1
+                      {{$no}}
                     </td>
-                    <td>Create a mobile app</td>
-                    <td class="align-middle">
-                      <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                        <div class="progress-bar bg-success" data-width="100%"></div>
-                      </div>
-                    </td>
+                    <td>{{$data->full_name}}</td> 
+                    <td>{{$data->email}}</td> 
+                    <td>{{$data->phone}}</td> 
+                    <td>{{$data->date_trial}}</td> 
+                    <td>{{$data->start_trial}}</td> 
+                    <td>{{$data->end_trial}}</td> 
                     <td>
-                      <img alt="image" src="assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                    </td>
-                    <td>2018-01-20</td>
-                    <td><div class="badge badge-success">Completed</div></td>
-                    <td>
-                      <a href="#" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                      <a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                      <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-trash"></i></a>
+                      <a href="https://wa.me/+62{{$data->phone}}/?text=HI! Tunjukan Pesan ini ke office gym! %0A Nama : {{$data->full_name}} %0A Date Trial : {{$data->date_trial}} %0A Start Trial : {{$data->start_trial}} %0A End Trial : {{$data->end_trial}}" target="_blank" class="btn btn-icon btn-success"><i class="fa-brands fa-whatsapp"></i></a>
+
+                      <a href="{{route('data-trial.edit',$data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                      <a onclick="confirmDelete(this)" data-url="{{route('data-trial.destroy',$data->id)}}" class="btn btn-icon btn-danger text-white"><i class="fas fa-trash"></i></a>
+                    </form>
                     </td>
                   </tr>
+                  @php
+                   $no++;   
+                  @endphp
+                  @endforeach      
                 </tbody>
               </table>
             </div>
@@ -70,6 +76,7 @@
 @endsection
 
 @section('addJavascript')
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/datatables.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js')}}"></script>
@@ -79,5 +86,39 @@
   $(function() {
     $('#tableDataAdmin').DataTable()
   })
+</script>
+<script>
+  confirmDelete = function(button) {
+    let url = $(button).data('url');
+    swal({
+      title: 'Konfirmasi Hapus',
+      text: 'Apakah Kamu Yakin Ingin Menghapus Data Ini?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then(function(value) {
+      if (value) {
+        $.ajax({
+          url: url,
+          type: 'DELETE',
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          success: function(result) {
+            swal('Data berhasil dihapus!', {
+              icon: 'success',
+            }).then(() => {
+              location.reload();
+            });
+          },
+          error: function(xhr) {
+            swal('Data gagal dihapus!', {
+              icon: 'error',
+            });
+          }
+        });
+      }
+    });
+  }
 </script>
 @endsection

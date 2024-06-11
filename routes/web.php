@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TrialController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +29,14 @@ Route::get('/', function () {
 // Admin  with prefix
 Route::prefix('admin')->group(function(){
   Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin']);
-  Route::get('/data-admin',function(){
-    return view('admin.dataAdmin.index');
-  });
+  Route::resource('/data-admin',AdminController::class);
   Route::get('/data-member',function(){
     return view('admin.dataMember.index');
   });
   Route::get('/data-trainer',function(){
     return view('admin.dataTrainer.index');
   });
-  Route::get('/data-trial',function(){
-    return view('admin.dataTrial.index');
-  });
+  Route::resource('/data-trial',TrialController::class);
   Route::get('/data-class',function(){
     return view('admin.dataClass.index');
   });
