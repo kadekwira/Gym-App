@@ -9,7 +9,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <a href="#" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
+            <a href="{{route('data-member.create')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
           </div>
           <div class="card-body">
             <div class="table-responsive">

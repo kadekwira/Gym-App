@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrialController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TipeMembershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,10 @@ use App\Http\Controllers\DashboardController;
 // User With Not Prefix
 Route::get('/', function () {
   return view('user.index');
-});
+})->name('dashboard.user');
 
+
+Route::post('/login',[AuthController::class,'login']);
 
 
 
@@ -30,9 +34,8 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
   Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin']);
   Route::resource('/data-admin',AdminController::class);
-  Route::get('/data-member',function(){
-    return view('admin.dataMember.index');
-  });
+  Route::resource('/tipe-membership',TipeMembershipController::class);
+  Route::resource('/data-member',MemberController::class);
   Route::get('/data-trainer',function(){
     return view('admin.dataTrainer.index');
   });

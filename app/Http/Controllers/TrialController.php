@@ -3,86 +3,63 @@
 namespace App\Http\Controllers;
 
 use App\Models\TrialDay;
+use App\Http\Requests\StoreTrialDayRequest;
+use App\Http\Requests\UpdateTrialDayRequest;
 use Illuminate\Http\Request;
 
 class TrialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $datas = TrialDay::all();
-        return view('admin.dataTrial.index', compact(['datas']));
+        return view('admin.dataTrial.index', compact('datas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.dataTrial.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreTrialDayRequest $request)
     {
-       TrialDay::create([
-            "full_name"=>$request->full_name,
-            "email"=>$request->email,
-            "phone"=>$request->phone,
-            "date_trial"=>$request->date_trial,
-            "start_trial"=>$request->start_trial,
-            "end_trial"=>$request->end_trial,
-       ]);
-
-       return redirect(route('data-trial.index'))->with('success','Data Berhasil Di Simpan');
+        try {
+            TrialDay::create($request->validated());
+            return redirect()->route('data-trial.index')->with('success', 'Data Berhasil Disimpan');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat menyimpan data.']);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        // Implementasi di sini jika diperlukan
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        $data = TrialDay::find($id);
-        return view('admin.dataTrial.edit',compact(['data']));
+        $data = TrialDay::findOrFail($id);
+        return view('admin.dataTrial.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateTrialDayRequest $request, string $id)
     {
-        $trialday =  TrialDay::findOrFail($id);
-        $trialday->update([
-            "full_name"=>$request->full_name,
-            "email"=>$request->email,
-            "phone"=>$request->phone,
-            "date_trial"=>$request->date_trial,
-            "start_trial"=>$request->start_trial,
-            "end_trial"=>$request->end_trial,
-        ]);
-        return redirect(route('data-trial.index'))->with('success','Data Berhasil Di Update');
+        try {
+            $trialday = TrialDay::findOrFail($id);
+            $trialday->update($request->validated());
+            return redirect()->route('data-trial.index')->with('success', 'Data Berhasil Diupdate');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat mengupdate data.']);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        $trialday = TrialDay::findOrFail($id);
-        $trialday->delete();
-        
-         return response()->json(['success' => 'Data berhasil dihapus']);
+        try {
+            $trialday = TrialDay::findOrFail($id);
+            $trialday->delete();
+            return response()->json(['success' => 'Data berhasil dihapus']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Terjadi kesalahan saat menghapus data'], 500);
+        }
     }
 }

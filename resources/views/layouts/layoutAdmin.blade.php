@@ -239,6 +239,8 @@
                                         Review</a></li>
                                 <li class="margin-left-neg"><a class="nav-link" href=""> <i
                                             class="fas fa-comments"></i>Data Notifications</a></li>
+                                <li class="margin-left-neg"><a class="nav-link" href=""> <i
+                                            class="fas fa-layer-group"></i>Tipe Membership</a></li>
                             </ul>
                         </li>
                         {{-- end Data Master --}}
