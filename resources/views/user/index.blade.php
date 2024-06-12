@@ -2,6 +2,7 @@
 
 @section('content')
 
+@guest
 <section class="hero">
     <div class="container">
         <div class="hero-content">
@@ -55,11 +56,7 @@
                 <a href="#" class="btn">Free Trial Today</a>
             </div>
         </div>
-        <!-- QR Code Section -->
-        <div class="qr-code-section text-center mt-5">
-            <h2>Scan to Join Our Free Trial</h2>
-            <img src="{{ asset('assets/img/qrcode.png') }}" alt="QR Code" class="img-fluid">
-        </div>
+       
     </div>
 </section>
 
@@ -182,26 +179,41 @@
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
-        </div>
+        
     </div>
 </section>
 
 
-<section class="testimonials">
-    <div class="container">
+
+<section  class="testimonials">
+    <div id="testimonials" class="container">
         <div class="testimonial-header">
             <h2 class="section-title">What Our Happy Clients Say About Us</h2>
         </div>
         <div class="testimonial-content">
             <div class="testimonial-text">
                 <p>Read through the experiences shared by our clients and see how we have helped them achieve their fitness goals.</p>
+                <div class="caterpillar">
+                    <img src="{{ asset('assets/img/gym1.jpg') }}" alt="Client 1" class="circle">
+                    <img src="{{ asset('assets/img/gym2.jpg') }}" alt="Client 2" class="circle">
+                    <img src="{{ asset('assets/img/gym3.jpg') }}" alt="Client 3" class="circle">
+                    <img src="{{ asset('assets/img/gym4.jpeg') }}" alt="Client 4" class="circle">
+                    <div class="plus-container">
+                        <div class="circle plus">+</div>
+                        <div class="description">
+                            <span class="star">⭐</span>
+                            <span class="text">4.9/5.0 Reviews </span>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
             <div class="testimonial-carousel">
                 <button class="carousel-control prev" onclick="prevSlide()">❮</button>
                 <div class="testimonial-cards">
                     <div class="testimonial-card">
                     <div class="testimonial-author">
-                            <img src="{{ asset('assets/img/profile1.jpg') }}" alt="Client Photo">
+                            <img src="{{ asset('assets/img/gym1.jpg') }}" alt="Client Photo">
                             <div class="author-info">
                                 <h4>Fatimah Siti</h4>
                                 <p>★★★★★</p>
@@ -213,7 +225,7 @@
                     </div>
                     <div class="testimonial-card">
                     <div class="testimonial-author">
-                            <img src="{{ asset('assets/img/profile2.jpg') }}" alt="Client Photo">
+                            <img src="{{ asset('assets/img/gym2.jpg') }}" alt="Client Photo">
                             <div class="author-info">
                                 <h4>John Doe</h4>
                                 <p>★★★★★</p>
@@ -258,7 +270,33 @@
         <span id="send-btn" class="material-symbols-outlined">send</span>
     </div>
 </div>
+@endguest
 
+@auth
+<section class="user-dashboard">
+    <div class="container">
+        <h2>Welcome, {{ Auth::user()->name }}</h2>
+        <div class="user-qrcode">
+            <h3>Your QR Code</h3>
+            <img src="{{ asset('assets/img/qrcode.png') }}" alt="User QR Code">
+        </div>
+        <div class="user-profile">
+            <h3>Your Profile</h3>
+            <p>Name: {{ Auth::user()->name }}</p>
+            <p>Email: {{ Auth::user()->email }}</p>
+            <!-- Additional profile information -->
+        </div>
+        <div class="user-notifications">
+            <h3>Notifications</h3>
+            <ul>
+                <li>You have 3 new messages</li>
+                <li>Your subscription is about to expire</li>
+                <!-- Additional notifications -->
+            </ul>
+        </div>
+    </div>
+</section>
+@endauth
 
 
 @endsection

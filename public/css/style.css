@@ -1,6 +1,7 @@
+
 /* Header */
 
-* {
+*{
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -13,60 +14,59 @@ header {
   padding: 10px 0;
 }
 
-header {
+header{
   display: flex;
-  justify-content: space-between;
-  padding: 20px 70px;
+  justify-content:space-between;
+  padding:20px 70px;
   align-items: center;
   position: fixed;
   width: 100%;
   z-index: 1000;
-  background-color: transparent;
+  background-color: transparent; 
 }
 
-header .title-header {
+header .title-header{
   display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #F2212F;
+  align-items:center;
+  gap:15px;
+  color:#F2212F;
   font-weight: 600;
 }
 
-.title-header span {
+.title-header span{
   color: white;
 }
-
-header nav {
+header nav{
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items:center;
+  gap:20px;
 }
-
-header nav a {
+ 
+header nav a{
   text-decoration: none;
   color: white;
   font-size: 16px;
   font-weight: 400;
 }
 
-header nav a:hover {
+header nav a:hover{
   text-decoration: none;
   color: #F2212F;
 }
 
-.active {
+.active{
   color: #F2212F;
 }
 
-nav .button-signIn {
-  background-color: #F2212F;
+nav .button-signIn{
+  background-color:#F2212F;
   color: white;
   padding: 0.375rem 0.75rem;
   border-radius: 0.5rem;
 }
 
-nav .button-signIn:hover {
-  background-color: #F2212F;
+nav .button-signIn:hover{
+  background-color:#F2212F;
   color: white;
   padding: 0.375rem 0.75rem;
   border-radius: 0.5rem;
@@ -74,88 +74,82 @@ nav .button-signIn:hover {
 
 .nav-items {
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   justify-content: center;
   gap: 15px;
 }
 
-.hero-text .group {
+.hero-text .group{
   display: flex;
-  gap: 20px;
+  gap:20px;
 }
 
-.hero-text h1 {
-  font-size: 60px;
+.hero-text h1{
+  font-size:60px ;
   color: white;
   font-weight: 700;
 }
 
-.hero-text p {
-  font-size: 16px;
+.hero-text p{
+  font-size:16px ;
   color: white;
 }
-
-.btn-danger {
+.btn-danger{
   background-color: #F2212F !important;
 }
-
-.hero-text .btn-danger {
+.hero-text .btn-danger{
   padding: 0.8rem 1rem;
   cursor: pointer;
 }
 
 
-.group .btn-video {
+.group .btn-video{
   display: flex;
-  gap: 15px;
+  gap:15px;
   align-items: center;
 }
 
-.btn-video i {
+.btn-video i{
   color: white;
   background-color: #b0b0b0;
   padding: 0.8rem 1rem;
   border-radius: 100%;
 }
-
-.btn-video span {
+.btn-video span{
   color: white;
 }
 
-.stats {
+.stats{
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap:15px;
   margin-top: 40px;
 }
 
-.stats div h3 {
+.stats div h3{
   color: white;
   font-weight: 600;
 }
-
-.stats div p {
+.stats div p{
   font-weight: 300;
 }
 
 .stats .line {
-  width: 1px;
-  /* Lebar garis */
-  height: 50px;
-  /* Tinggi garis */
-  background-color: rgb(255, 255, 255);
-  /* Warna garis */
-  margin: 20px;
-  /* Margin untuk memberikan jarak */
+  width: 1px; /* Lebar garis */
+  height: 50px; /* Tinggi garis */
+  background-color: rgb(255, 255, 255); /* Warna garis */
+  margin: 20px; /* Margin untuk memberikan jarak */
 }
-
+  
 /* End Hero */
 
 
 
 
 
+
 /* General reset and styling */
+
 
 
 
@@ -192,23 +186,23 @@ nav .button-signIn:hover {
 /* Media Queries */
 @media (max-width: 768px) {
   .nav-items {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    background: #333;
-    padding: 10px 0;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background: #333;
+      padding: 10px 0;
   }
 
   .nav-items.active {
-    display: flex;
+      display: flex;
   }
 
   .menu-toggle {
-    display: block;
+      display: block;
   }
 }
 
@@ -216,10 +210,10 @@ nav .button-signIn:hover {
 .hero {
   color: #fff;
   padding: 50px;
-  text-align: left;
+  text-align: left; 
   display: flex;
   align-items: center;
-  background: #000;
+  background: #000; 
 }
 
 .hero .container {
@@ -239,8 +233,7 @@ nav .button-signIn:hover {
   flex: 1;
   z-index: 2;
 }
-
-.hero-text p {
+.hero-text p{
   text-align: left;
 }
 
@@ -248,7 +241,7 @@ nav .button-signIn:hover {
   flex: 1;
   text-align: right;
   z-index: 1;
-  position: relative;
+
 }
 
 .hero-image img {
@@ -279,7 +272,7 @@ nav .button-signIn:hover {
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  background-color: #000;
+  background-color: #000; 
   /* margin-bottom: 20px; */
   gap: 20px;
 }
@@ -303,8 +296,8 @@ nav .button-signIn:hover {
 
 .trial-container .image .badge {
   position: absolute;
-  width: 35%;
-  height: fit-content;
+  width:35%;
+  height:fit-content;
   bottom: 30px;
   left: 350px;
   background-color: #fff;
@@ -316,7 +309,7 @@ nav .button-signIn:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap:20px;
 }
 
 .trial-container .image .badge img {
@@ -352,14 +345,14 @@ nav .button-signIn:hover {
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-
+ 
 }
 
 
 /* CSS untuk QR Code Section */
 .qr-code-section {
   margin-top: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 .qr-code-section h2 {
@@ -370,8 +363,8 @@ nav .button-signIn:hover {
 }
 
 .qr-code-section img {
-  max-width: 200px;
-  width: 100%;
+  max-width: 150px;
+  width: 80%;
   height: auto;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -407,7 +400,7 @@ nav .button-signIn:hover {
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  background-color: #000;
+  background-color: #000; 
   padding-top: 100px;
   padding-bottom: 100px;
   gap: 20px;
@@ -416,11 +409,11 @@ nav .button-signIn:hover {
 .class h2 {
   font-size: 35px;
   color: white;
-  font-weight: 700;
+  font-weight: 700;  
 }
 
 
-.class p {
+.class p{
   margin-bottom: 50px;
 }
 
@@ -434,7 +427,7 @@ nav .button-signIn:hover {
 
 .class-card {
   background: #333;
-  border-radius: 10px;
+  border-radius:  10px;
   padding: 20px;
   transition: background 0.3s, transform 0.3s;
   flex: 1 1 calc(25% - 20px);
@@ -453,8 +446,8 @@ nav .button-signIn:hover {
 }
 
 .class-card img {
-  width: 50px;
-  height: 50px;
+  width: 50px; 
+  height: 50px; 
   margin-bottom: 10px;
   filter: brightness(0) invert(1);
 }
@@ -523,7 +516,7 @@ nav .button-signIn:hover {
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  background-color: #000;
+  background-color: #000; 
   /* margin-bottom: 20px; */
   gap: 20px;
   border-bottom: none;
@@ -531,8 +524,8 @@ nav .button-signIn:hover {
 
 .plan-cards-container {
   display: flex;
-  justify-content: center;
-  width: 80%;
+  justify-content: center; 
+  width: 80%; 
   margin: 10px;
   border-bottom: none;
 }
@@ -567,62 +560,59 @@ nav .button-signIn:hover {
   padding: 20px 0;
 }
 
-h2 {
+ h2 {
   font-size: 35px;
   color: white;
   font-weight: 700;
   text-align: center;
-}
-
-p {
+ }
+ p {
   font-size: 18Spx;
   color: white;
   text-align: center;
   padding-bottom: 20px;
-}
-
+ }
+ 
 .plan-card {
   background: #333;
   border-radius: 10px;
   padding: 15px 20px;
   text-align: center;
   transition: background 0.2s, transform 0.2s;
-  flex: 1;
+  flex: 1 ;
   cursor: pointer;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.plan-card h3,
-.plan-card p {
+.plan-card h3, .plan-card p {
   background: transparent;
 }
 
 .plan-card ul {
-  list-style: none;
+  list-style: none; 
   padding: 0;
   margin: 0;
-  text-align: justify;
+  text-align: justify; 
   background: transparent;
 }
-
-.plan-card li {
-  background: transparent;
+.plan-card li{
+background: transparent;
 }
 
 .plan-card ul li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-
+  padding-left: 25px; 
+  margin-bottom: 10px; 
+  
 }
 
 .plan-card ul li:before {
-  content: '\2713';
+  content: '\2713'; 
   position: absolute;
   left: 0;
-  color: white;
-  font-size: 20px;
+  color: white; 
+  font-size: 20px; 
   line-height: 1;
 }
 
@@ -659,7 +649,7 @@ p {
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  background-color: #000;
+  background-color: #000; 
   /* margin-bottom: 20px; */
   gap: 20px;
 }
@@ -704,7 +694,7 @@ p {
   margin-right: 20px;
   font-size: 20px;
   margin: 0;
-
+   
 }
 
 .caterpillar {
@@ -713,21 +703,21 @@ p {
 }
 
 .circle {
-  width: 40px;
-  height: 40px;
+  width: 40px; 
+  height: 40px; 
   border-radius: 50%;
   object-fit: cover;
   position: relative;
 }
 
 .circle:not(:first-child) {
-  margin-left: -10px;
+  margin-left: -10px; 
 }
 
 .plus-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px; 
 }
 
 .plus {
@@ -744,15 +734,15 @@ p {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 18px;
+  font-size: 18px; 
 }
 
 .star {
-  font-size: 24px;
+  font-size: 24px; 
 }
 
 .text {
-  font-size: 18px;
+  font-size: 18px; 
 }
 
 .testimonial-carousel {
@@ -766,7 +756,7 @@ p {
 
 .testimonial-card-wrapper {
   display: flex;
-  width: 300px;
+  width: 300px; 
   overflow: hidden;
 }
 
@@ -781,14 +771,14 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-right: 20px;
   flex-shrink: 0;
-  display: none;
+  display: none; 
 }
 
 .testimonial-card.active {
-  display: block;
+  display: block; 
 }
 
-.testimonial-content {
+.testimonial-content  {
   font-size: 20px;
   margin-bottom: 20px;
   background: transparent;
@@ -818,12 +808,12 @@ p {
   margin: 0;
   font-size: 21px;
   background: transparent;
-
+  
 }
 
 .author-info p {
   margin: 0;
-  color: #ffcc00;
+  color: #ffcc00; 
   background: transparent;
 }
 
@@ -962,12 +952,11 @@ footer .footer-column button:hover {
 .footer-bottom .social-icons a:hover {
   color: #e63946;
 }
-
-.footer-bottom .title-header {
+.footer-bottom .title-header{
   display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #F2212F;
+  align-items:center;
+  gap:15px;
+  color:#F2212F;
   font-weight: 600;
 }
 

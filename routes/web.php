@@ -5,6 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrialController;
 use App\Http\Controllers\DashboardController;
 
+use App\Http\Controllers\HomeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +24,9 @@ Route::get('/', function () {
   return view('user.index');
 });
 
+Route::get('/login', function () {
+  return view('user.login');
+ } )->name("login");
 
 
 
@@ -50,4 +56,6 @@ Route::prefix('admin')->group(function(){
     return view('admin.dataNotif.index');
   });
 });
+
+
 

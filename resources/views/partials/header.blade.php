@@ -19,7 +19,17 @@
         <a href="">About Us</a>
         <a href="">Class</a>
         <a href="">Membership</a>
-        <a href="">Testimonial</a>
-        <a href="login.blade.php" class="button-signIn">Sign In</a>
+        <a href="testimonials">Testimonial</a>
+        @auth
+        <a href="#" class="qrcode-link">QR Code</a>
+                <div class="qrcode">
+                    <img src="{{ asset('assets/img/qrcode.png') }}" alt="QR Code">
+                </div>
+                <a href="" class="profile-link">Profile</a>
+                <a href="" class="notifications-link">Notifications</a>
+                <a href="" class="logout-button">Logout</a>
+            @else
+                <a href="{{ route('login') }}" class="button-signIn">Sign In</a>
+            @endauth
     </nav>
  </header>
