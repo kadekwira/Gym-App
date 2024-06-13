@@ -89,9 +89,10 @@
             <h1>Fitnes</h1>
         </div>
         <form class="login-form" action="/login" method="POST">
-            <div class="form-group">
+            @csrf
+        <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

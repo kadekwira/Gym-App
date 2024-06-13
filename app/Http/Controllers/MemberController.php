@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\MembershipType;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
@@ -71,6 +72,16 @@ class MemberController extends Controller
         //
     }
 
+    public function showProfile()
+    {
+        $user = Auth::user();
+
+        if ($user) {
+            return view('user.profile', compact('user'));
+        } else {
+            return redirect()->route('login')->with('error', 'You need to log in first.');
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      */

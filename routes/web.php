@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrialController;
 use App\Http\Controllers\MemberController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TipeMembershipController;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QrCodeController;
 
 
 /*
@@ -32,6 +34,10 @@ Route::get('/login', function () {
 
 Route::post('/login',[AuthController::class,'login']);
 
+Route::get('/qrcode/{user}', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+
+
+Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 
 
 
