@@ -560,8 +560,9 @@ nav .button-signIn:hover {
 
 .plan-cards {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 40px;
   margin: 0 auto;
   padding: 20px 0;

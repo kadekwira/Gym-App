@@ -107,7 +107,7 @@
         </div>
         <div class="plan-cards monthly">
             <div class="plan-card">
-                <h3>Discover</h3>
+                <h3>Discoveri</h3>
                 <p>$99 Per Month</p>
                 <ul>
                     <li>5 Gym Access</li>
@@ -160,6 +160,7 @@
             <h3>Lifetime</h3>
                 <p>$2999 Per Year</p>
                 <ul>
+                    <li>5 Personal Training Sessions per Week</li>
                     <li>Dedicated Personal Trainer</li>
                     <li>Customized Nutrition Plan</li>
                     <li>Lifetime Membership</li>
@@ -168,18 +169,17 @@
                 <a href="#" class="btn">Choose Plan</a>
             </div>
             <div class="plan-card">
-            <h3>Professional</h3>
-                <p>$1999 Per Year</p>
+                <h3>Professional</h3>
+                <p>$199 Per Month</p>
                 <ul>
-                    <li>Unlimited Gym Access</li>
+                    <li>20 Gym Access</li>
                     <li>Personal Trainer</li>
-                    <li>2 Classes per Week</li>
-                    <li>Customized Individual Training</li>
-                    <li>Quarterly Fitness Report</li>
+                    <li>Premium Options</li>
+                    <li>Five Year Membership</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
-        
+        </div>
     </div>
 </section>
 
