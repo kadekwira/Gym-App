@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('role');
-            $table->enum('status',['active','inactive']);
             $table->timestamps();
         });
     }

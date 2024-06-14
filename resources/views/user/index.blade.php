@@ -103,8 +103,8 @@
         <p>Choose a plan that works best for your fitness goals. Enjoy flexibility in making changes.</p>
         <div class="plan-cards">
             <div class="plan-card">
-                <h3>Discoveri</h3>
-                <p>$99 Per Month</p>
+                <h3 class="fw-bold">12 Bulan</h3>
+                <p>Rp. <span class="fw-bold">300.000</span> /Bulan</p>
                 <ul>
                     <li>5 Gym Access</li>
                     <li>Personal Trainer</li>
@@ -135,45 +135,19 @@
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
-        </div>
-        <div class="plan-cards annual" style="display: none;">
             <div class="plan-card">
-            <h3>Discover</h3>
-                <p>$999 Per Year</p>
+                <h3>Professional</h3>
+                <p>$199 Per Month</p>
                 <ul>
-                    <li>Access to All Branches</li>
-                    <li>Special Events</li>
-                    <li>Basic Training Program</li>
-                    <li>Unlimited Group Classes</li>
-                    <li>24/7 Customer Support</li>
-                </ul>
-                <a href="#" class="btn">Choose Plan</a>
-            </div>
-            <div class="plan-card popular">
-            <h3>Lifetime</h3>
-                <p>$2999 Per Year</p>
-                <ul>
-                    <li>5 Personal Training Sessions per Week</li>
-                    <li>Dedicated Personal Trainer</li>
-                    <li>Customized Nutrition Plan</li>
-                    <li>Lifetime Membership</li>
-                    <li>Annual Physical Examination</li>
-                </ul>
-                <a href="#" class="btn">Choose Plan</a>
-            </div>
-            <div class="plan-card">
-            <h3>Professional</h3>
-                <p>$1999 Per Year</p>
-                <ul>
-                    <li>Unlimited Gym Access</li>
+                    <li>20 Gym Access</li>
                     <li>Personal Trainer</li>
-                    <li>2 Classes per Week</li>
-                    <li>Customized Individual Training</li>
-                    <li>Quarterly Fitness Report</li>
+                    <li>Premium Options</li>
+                    <li>Five Year Membership</li>
                 </ul>
                 <a href="#" class="btn">Choose Plan</a>
             </div>
         </div>
+
     </div>
 </section>
 

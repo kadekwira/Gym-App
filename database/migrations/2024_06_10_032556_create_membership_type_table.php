@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('membership_type', function (Blueprint $table) {
+        Schema::create('membership_types', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->text('description');
             $table->integer('duration_member');
-            $table->decimal('price_member');
+            $table->double('price_member');
+            $table->string('by');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('membership_type');
+        Schema::dropIfExists('membership_types');
     }
 };
