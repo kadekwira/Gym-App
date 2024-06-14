@@ -8,17 +8,18 @@
     <div class="row">
       <div class="col-12 ">
         <div class="card">
-          <form method="post" action="{{route('tipe-membership.store')}}">
+          <form method="post" action="{{route('tipe-membership.update',$data->id)}}">
             @csrf
+            @method('PUT')
             <div class="card-header">
-              <h4>Add Tipe Membership</h4>
+              <h4>Edit Tipe Membership</h4>
             </div>
             <div class="card-body row">
               <div class="col-12">
                 <div class="form-group">
                   <label>Title</label>
                   <input type="text" class="form-control" required=""
-                  name="title" placeholder="2 Bulan"
+                  name="title" placeholder="2 Bulan" value="{{$data->title}}"
                   >
                 </div>
               </div>
@@ -26,28 +27,28 @@
                 <div class="form-group">
                   <label>Duration Member</label>
                   <input type="number" class="form-control" required=""
-                  name="duration_member" placeholder="12"
+                  name="duration_member" placeholder="12" value="{{$data->duration_member}}"
                   >
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
                   <label>Price Member</label>
-                  <input type="text" class="form-control" required="" id="price_member"
+                  <input type="text" class="form-control" required="" value="@rupiah($data->price_member)" id="price_member"
                   name="price_member">
                 </div>
               </div>
               <div class="col-2">
                 <div class="form-group">
                   <label>Satuan</label>
-                  <input type="text" class="form-control" required=""
+                  <input type="text" class="form-control" required="" value="{{$data->by}}"
                   name="by" placeholder="bulan/tahun">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label >Description</label>
-                    <textarea class="summernote" name="description"></textarea>
+                    <textarea class="summernote" name="description">{{$data->description}}</textarea>
                 </div>
               </div>
 
@@ -71,22 +72,22 @@
 
 @section('addJavascript')
 <script>
-  var input = document.getElementById('price_member');
-  input.addEventListener('keyup', function(e) {
-      var bilangan = e.target.value.replace(/[^,\d]/g, '').toString(),
-          split = bilangan.split(','),
-          sisa = split[0].length % 3,
-          rupiah = split[0].substr(0, sisa),
-          ribuan = split[0].substr(sisa).match(/\d{1,3}/gi);
-  
-      if (ribuan) {
-          separator = sisa ? '.' : '';
-          rupiah += separator + ribuan.join('.');
-      }
-  
-      rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-      var formattedValue = 'Rp. ' + rupiah; // Menambahkan prefix "Rp." secara default
-      input.value = formattedValue;
-  });
-  </script>
+var input = document.getElementById('price_member');
+input.addEventListener('keyup', function(e) {
+    var bilangan = e.target.value.replace(/[^,\d]/g, '').toString(),
+        split = bilangan.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{1,3}/gi);
+
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    var formattedValue = 'Rp. ' + rupiah; // Menambahkan prefix "Rp." secara default
+    input.value = formattedValue;
+});
+</script>
 @endsection

@@ -29,7 +29,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/helpers/helper.php"
+            "app/helpers/helper.php",
+            "app/helpers/convertNumeric.php"
         ]
     },
     "autoload-dev": {

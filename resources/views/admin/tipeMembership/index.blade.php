@@ -14,16 +14,16 @@
           <div class="card-body">
             <div class="d-flex align-items-center">
               @forelse ($datas as $data)
-              <div class="card card-primary">
+              <div class="card card-primary mr-2 shadow-md">
                 <div class="card-header">
                   <h4>Member <span>{{$data->title}}</span></h4>
                   <div class="card-header-action">
                     <div class="dropdown">
                       <a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Options</a>
                       <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
+                        <a href="{{route('tipe-membership.edit',$data->id)}}" class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item has-icon text-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                        <a onclick="confirmDelete(this)" data-url="{{route('tipe-membership.destroy',$data->id)}}" class="dropdown-item has-icon text-danger"><i class="far fa-trash-alt"></i> Delete</a>
                       </div>
                     </div>
                   </div>

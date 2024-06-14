@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\MembershipType;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Requests\StoreMemberRequest;
+use App\Http\Requests\UpdateMemberRequest;
 
 class MemberController extends Controller
 {
@@ -30,37 +33,19 @@ class MemberController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreMemberRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            'phone' => 'nullable|string|max:15',
-            'address' => 'nullable|string|max:255',
-            'date_of_birth' => 'nullable|date',
-            'membership_type_id' => 'required|exists:membership_types,id',
-            'membership_start' => 'nullable|date',
-            'membership_end' => 'nullable|date',
-            'status' => 'in:active,inactive',
-        ]);
 
-        User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'date_of_birth' => $request->date_of_birth,
-            'membership_type_id' => $request->membership_type_id,
-            'membership_start' => $request->membership_start,
-            'membership_end' => $request->membership_end,
-            'status' => "active",
-        ]);
+        try {
+            $validated = $request->validated();
+            $validated['password'] = Hash::make($validated['password']);
 
-        return redirect()->route('data-member.index')->with('success', 'Member created successfully.');
+            User::create($validated);
+
+            return redirect()->route('data-member.index')->with('success', 'Admin berhasil dibuat.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat membuat admin.']);
+        }
     }
 
     /**
@@ -68,7 +53,8 @@ class MemberController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $member = User::with('membershipType')->findOrFail($id);
+        return response()->json($member);
     }
 
     /**
@@ -76,15 +62,32 @@ class MemberController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = User::findOrFail($id);
+        $tipe = MembershipType::all();
+        return view('admin.dataMember.edit', compact('tipe','data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateMemberRequest $request, string $id)
     {
-        //
+        try {
+            $validated = $request->validated();
+
+            if (!empty($validated['password'])) {
+                $validated['password'] = Hash::make($validated['password']);
+            } else {
+                unset($validated['password']);
+            }
+
+            $user = User::findOrFail($id);
+            $user->update($validated);
+
+            return redirect()->route('data-member.index')->with('success', 'Member berhasil diperbarui.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui member.']);
+        }
     }
 
     /**
@@ -93,5 +96,10 @@ class MemberController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function checkMembership(){
+        Artisan::call('membership:check');
+        return redirect()->route('data-member.index')->with('success', 'Membership status checked successfully');
     }
 }

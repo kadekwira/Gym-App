@@ -32,12 +32,21 @@ class TipeMembershipController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'duration_member' => 'required|integer',
-            'price_member' => 'required|numeric',
+            'duration_member' => 'required|string',
+            'price_member' => 'required',
             'by' => 'required|string|max:255',
         ]);
 
-        MembershipType::create($request->all());
+        $priceMember = convertToDouble($request->input('price_member'));
+
+        $membershipType = new MembershipType();
+        $membershipType->title = $request->input('title');
+        $membershipType->description = $request->input('description');
+        $membershipType->duration_member = $request->input('duration_member');
+        $membershipType->price_member = $priceMember;
+        $membershipType->by = $request->input('by');
+
+        $membershipType->save();
 
         return redirect()->route('tipe-membership.index')
                          ->with('success', 'Membership Type created successfully.');
@@ -57,7 +66,7 @@ class TipeMembershipController extends Controller
     public function edit(string $id)
     {
         $data = MembershipType::findOrFail($id);
-        return view('admin.membershipType.edit', compact('data'));
+        return view('admin.tipeMembership.edit', compact('data'));
     }
 
     /**
@@ -65,19 +74,28 @@ class TipeMembershipController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
         $membershipType = MembershipType::findOrFail($id);
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'duration_member' => 'required|integer',
-            'price_member' => 'required|numeric',
+            'price_member' => 'required|string', 
             'by' => 'required|string|max:255',
         ]);
 
-        $membershipType->update($request->all());
+        // Convert price_member to double
+        $priceMember = convertToDouble($request->input('price_member'));
 
-        return redirect()->route('membership-types.index')
+        $membershipType->title = $request->input('title');
+        $membershipType->description = $request->input('description');
+        $membershipType->duration_member = $request->input('duration_member');
+        $membershipType->price_member = $priceMember;
+        $membershipType->by = $request->input('by');
+
+        $membershipType->save();
+
+        return redirect()->route('tipe-membership.index')
                          ->with('success', 'Membership Type updated successfully.');
     }
 
@@ -86,6 +104,12 @@ class TipeMembershipController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $membershipType = MembershipType::findOrFail($id);
+            $membershipType->delete();
+            return response()->json(['success' => 'Data berhasil dihapus']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Terjadi kesalahan saat menghapus data'], 500);
+        }
     }
 }
