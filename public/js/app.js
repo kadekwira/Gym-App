@@ -1,3 +1,41 @@
+function toggleDropdown() {
+  var dropdownMenu = document.getElementById("dropdownMenu");
+  if (dropdownMenu.style.display === "block") {
+      dropdownMenu.style.display = "none";
+  } else {
+      dropdownMenu.style.display = "block";
+  }
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.profile-link')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
+          }
+      }
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var signinBtn = document.querySelector('.button-signIn');
+    var loginForm = document.getElementById('login-form');
+    var qrCodeSection = document.querySelector('.qr-code');
+
+    signinBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Untuk mencegah tindakan default dari tautan
+
+        loginForm.style.display = 'block';
+        qrCodeSection.style.display = 'none';
+    });
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const classCards = document.querySelectorAll('.class-card');
   const modal = document.getElementById('class-detail-modal');

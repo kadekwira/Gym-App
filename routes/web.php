@@ -10,6 +10,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\TipeMembershipController;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QrCodeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +30,16 @@ Route::get('/', function () {
   return view('user.index');
 })->name('dashboard.user');
 
+Route::get('/login', function () {
+  return view('user.login');
+ } )->name("login");
 
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/qrcode/{user}', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+
+
+Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 
 
 
@@ -64,4 +75,6 @@ Route::prefix('admin')->group(function () {
   Route::put('/information-gym/edit/{informationgym}', [InformationController::class, 'update'])->name('updateInformation');
   Route::get('/information-gym/destroy/{infomationgym}', [InformationController::class, 'destroy'])->name('deleteInformation');
 });
+
+
 

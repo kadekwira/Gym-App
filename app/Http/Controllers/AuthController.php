@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed, redirect to the intended page
-            return redirect()->intended('dashboard.user');
+            return redirect()->route('dashboard.user');
         }
 
         // Authentication failed, redirect back with an error message

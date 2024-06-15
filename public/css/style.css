@@ -148,14 +148,15 @@ nav .button-signIn:hover {
   margin: 20px;
   /* Margin untuk memberikan jarak */
 }
-
 /* End Hero */
 
 
 
 
 
+
 /* General reset and styling */
+
 
 
 
@@ -248,7 +249,6 @@ nav .button-signIn:hover {
   flex: 1;
   text-align: right;
   z-index: 1;
-  position: relative;
 }
 
 .hero-image img {
@@ -303,8 +303,8 @@ nav .button-signIn:hover {
 
 .trial-container .image .badge {
   position: absolute;
-  width: 35%;
-  height: fit-content;
+  width:35%;
+  height:fit-content;
   bottom: 30px;
   left: 350px;
   background-color: #fff;
@@ -353,6 +353,51 @@ nav .button-signIn:hover {
   font-weight: bold;
   transition: background-color 0.3s ease;
 
+}
+
+
+/* CSS untuk QR Code Section */
+.qr-code-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.qr-code-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.qr-code-section img {
+  max-width: 150px;
+  width: 80%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .qr-code-section h2 {
+      font-size: 20px;
+  }
+
+  .qr-code-section img {
+      max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qr-code-section h2 {
+      font-size: 18px;
+  }
+
+  .qr-code-section img {
+      max-width: 120px;
+  }
 }
 
 
@@ -522,8 +567,7 @@ nav .button-signIn:hover {
   margin: 0 auto;
   padding: 20px 0;
 }
-
-h2 {
+ h2 {
   font-size: 35px;
   color: white;
   font-weight: 700;
@@ -801,6 +845,7 @@ p {
   position: absolute;
   right: -30px;
 }
+
 
 /* Footer styling */
 footer {
@@ -1138,3 +1183,4 @@ footer .footer-column button:hover {
     display: block;
   }
 }
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\MembershipType;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Requests\StoreMemberRequest;
@@ -57,6 +58,16 @@ class MemberController extends Controller
         return response()->json($member);
     }
 
+    public function showProfile()
+    {
+        $user = Auth::user();
+
+        if ($user) {
+            return view('user.profile', compact('user'));
+        } else {
+            return redirect()->route('login')->with('error', 'You need to log in first.');
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -102,4 +113,6 @@ class MemberController extends Controller
         Artisan::call('membership:check');
         return redirect()->route('data-member.index')->with('success', 'Membership status checked successfully');
     }
+
+    
 }
