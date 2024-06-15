@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\InformationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrialController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InformationController;
 use App\Http\Controllers\TipeMembershipController;
 
 /*
@@ -40,10 +41,8 @@ Route::prefix('admin')->group(function () {
   Route::resource('/tipe-membership', TipeMembershipController::class);
   Route::resource('/data-member', MemberController::class);
   Route::resource('/data-trial', TrialController::class);
-
-  Route::get('/data-trainer', function () {
-    return view('admin.dataTrainer.index');
-  });
+  Route::resource('/data-trainer',TrainerController::class);
+  
   Route::get('/data-class', function () {
     return view('admin.dataClass.index');
   });
