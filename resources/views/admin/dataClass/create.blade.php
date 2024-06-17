@@ -84,8 +84,8 @@
                 <div class="form-group">
                   <label>Status</label>
                   <select class="form-control" id="status" name="status" required>
-                    <option value="active">Active</option>
-                    <option value="inactive">InActive</option>
+                    <option value="open">Open</option>
+                    <option value="close">Close</option>
                 </select>
                 
                 </div>

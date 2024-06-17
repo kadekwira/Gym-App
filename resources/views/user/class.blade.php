@@ -33,41 +33,55 @@
 
 <main>
     <h1>Explore All Classes</h1>
-
-    <div class="card">
-        <img src="{{ asset('assets/img/hit.jpg') }}" alt="HIIT Class">
-        <div class="card-overlay">
-        <div class="strength-classes">STRENGTH CLASSES</div>
-            <h2>HIIT</h2>
-            <div class="card-details">
-                <div class="intensity-duration">
-                <i class="fa-solid fa-dumbbell"></i>
-                    <span class="intensity">MODERATE</span>
-                </div>
-                <div class="intensity-duration-container">
-                    <span class="duration">60 MIN</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="{{ asset('assets/img/core.jpg') }}" alt="Core Class">
-        <div class="card-overlay">
-        <div class="strength-classes">STRENGTH CLASSES</div>
-            <h2>CORE</h2>
-            <div class="card-details">
-                <div class="intensity-duration">
-                <i class="fa-solid fa-dumbbell"></i>
-                    <span class="intensity">MODERATE</span>
-                </div>
-                <div class="intensity-duration-container">
-                    <span class="duration">60 MIN</span>
-                </div>
-            </div>
+    <div class="container">
+        <div class="d-flex gap-3 flex-wrap">
+            @forelse ($classes as $class)
+            @php
+                $schedule = \Carbon\Carbon::parse($class->schedule)->translatedFormat('l, j F Y H:i');
+                
+                $badgeClasses = [
+                    'Open' => 'badge-success',
+                    'Closed' => 'badge-danger',
+                ];
+                $badgeClass = $badgeClasses[$class->status] ?? 'badge-default'; // Default to 'badge-default' if status not found
+            @endphp
+                       <div class="card card-custom" style="width: 20rem;">
+                           <img src="{{ asset('storage/' . $class->image) }}" class="card-img-top" alt="{{ $class->class_name }}" height="200px">
+                           <div class="card-body">
+                               <h5 class="card-title">{{ $class->class_name }}</h5>
+                               <div class="d-flex flex-column">
+                                   <div class="mb-2">
+                                       <span style="font-weight:600;">Tanggal</span> : <span>{{ $schedule }}</span>
+                                   </div>
+                                   <div class="mb-2">
+                                       <span style="font-weight:600;">Trainer</span> : <span>{{ $class->trainer->trainer_name }}</span>
+                                   </div>
+                                   <div class="mb-2">
+                                       <span style="font-weight:600;">Kapasitas</span> : <span>{{ $class->bookings_count }} /{{$class->capacity }}</span>
+                                   </div>
+                                   <div class="mb-2">
+                                       <span style="font-weight:600;">Status</span> :
+                                       <span class="badge {{ $badgeClass }}">{{ $class->status }}</span>
+                                   </div>
+                               </div>
+                               @auth
+                                @if (!$class->user_has_booked)
+        
+                                        <form action="{{ route('class.booking', ['id' => $class->id]) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                            <button type="submit" class="btn btn-primary" style="background-color: #F2212F !important; border:none;">Book Class</button>
+                                        </form>
+                                        
+                                @endif
+                               @endauth
+                           </div>
+                          </div>
+            @empty
+                <p>No classes available.</p>
+            @endforelse
         </div>
     </div>
 </main>
-
 
 @endsection

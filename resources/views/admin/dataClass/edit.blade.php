@@ -87,8 +87,8 @@
                 <div class="form-group">
                     <label>Status</label>
                     <select class="form-control" id="status" name="status" required>
-                        <option value="active" {{ $data->status == 'open' ? 'selected' : '' }}>Active</option>
-                        <option value="inactive" {{ $data->status == 'close' ? 'selected' : '' }}>InActive</option>
+                        <option value="open" {{ $data->status == 'open' ? 'selected' : '' }}>Open</option>
+                        <option value="close" {{ $data->status == 'close' ? 'selected' : '' }}>Close</option>
                     </select>
                 </div>
             </div>

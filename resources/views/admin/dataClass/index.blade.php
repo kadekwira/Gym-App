@@ -51,8 +51,8 @@
                     <td>
                       @php
                         $badgeClasses = [
-                          'active' => 'badge-success',
-                          'inactive' => 'badge-danger',
+                          'open' => 'badge-success',
+                          'close' => 'badge-danger',
                         ];
                         $badgeClass = $badgeClasses[$data->status] ?? 'badge-default'; 
                       @endphp

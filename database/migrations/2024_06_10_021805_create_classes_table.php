@@ -22,7 +22,7 @@ return new class extends Migration
             $table->datetime('schedule');
             $table->integer('duration_minutes');
             $table->integer('capacity');
-            $table->enum('status',['active','inactive']);
+            $table->enum('status',['open','close']);
             $table->timestamps();
         });
     }

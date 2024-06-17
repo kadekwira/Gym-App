@@ -4,20 +4,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\TrialController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\QrCodeController;
-use App\Http\Controllers\TrainerController;
 
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FreeTrialController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\BookingClassController;
 use App\Http\Controllers\KategoriClassController;
 use App\Http\Controllers\TipeMembershipController;
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\QrCodeController;
+
 
 
 /*
@@ -39,13 +40,16 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
 Route::post('/login', [AuthController::class, 'login']);
 
-
 Route::get('/qrcode/{user}', [QrCodeController::class, 'generate'])->name('qrcode.generate');
-
-
 Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 
 Route::get('/class', [ClassController::class, 'index'])->name('class.index');
+Route::post('/class/booking/{id}', [ClassController::class, 'booking'])->name('class.booking');
+
+
+Route::get('/freetrial', [FreeTrialController::class, 'index'])->name('freetrial.index');
+Route::post('/freetrial/store', [FreeTrialController::class, 'store'])->name('freetrial.store');
+
 
 
 // Admin  with prefix

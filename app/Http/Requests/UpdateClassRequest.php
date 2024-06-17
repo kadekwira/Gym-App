@@ -29,7 +29,7 @@ class UpdateClassRequest extends FormRequest
             'schedule' => 'required',
             'duration_minutes' => 'required|integer|min:0',
             'capacity' => 'required|integer|min:1',
-            'status' => 'required|in:active,inactive',
+            'status' => 'required|in:open,close',
             'id_kategori_class' => 'required|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
@@ -56,7 +56,7 @@ class UpdateClassRequest extends FormRequest
             'capacity.integer' => 'Kapasitas harus berupa angka.',
             'capacity.min' => 'Kapasitas harus minimal 1.',
             'status.required' => 'Status wajib diisi.',
-            'status.in' => 'Status harus berupa active dan inactive',
+            'status.in' => 'Status harus berupa open dan close',
             'id_kategori_class.required' => 'Kategori kelas wajib diisi.',
             'id_kategori_class.integer' => 'Kategori kelas harus berupa angka.',
             'image.image' => 'File harus berupa gambar.',

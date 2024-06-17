@@ -15,7 +15,7 @@ class BookingClassController extends Controller
         $currentTime = Carbon::now()->setTimezone('Asia/Makassar');
 
         // Ambil semua kelas yang statusnya 'active'
-        $classes = Kelas::where('status', 'active')->get();
+        $classes = Kelas::where('status', 'open')->get();
 
         foreach ($classes as $class) {
             $class->bookings_count = $class->bookings()->count(); 

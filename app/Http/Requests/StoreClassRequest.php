@@ -29,7 +29,7 @@ class StoreClassRequest extends FormRequest
             'schedule' => 'required',
             'duration_minutes' => 'required|integer|min:0',
             'capacity' => 'required|integer|min:1',
-            'status' => 'required|in:active,inactive',
+            'status' => 'required|in:open,close',
             'id_kategori_class' => 'required|',
             'image' => 'required|',
         ];
@@ -57,7 +57,7 @@ class StoreClassRequest extends FormRequest
             'capacity.integer' => 'Kapasitas harus berupa angka.',
             'capacity.min' => 'Kapasitas harus minimal 1.',
             'status.required' => 'Status wajib diisi.',
-            'status.in' => 'Status harus berupa active dan inactive',
+            'status.in' => 'Status harus berupa open dan close',
             'id_kategori_class'=>'Kategori class wajib diisi.',
             'image'=>'image class wajib diisi.',
         ];

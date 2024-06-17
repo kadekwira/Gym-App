@@ -24,9 +24,11 @@
 
 <body>
     @include('partials.header')
+    @include('sweetalert::alert')
     <div class="content">
         @yield('content')
     </div>
+    @yield('addJavascript')
     @include('partials.footer')
 
     <script src="{{ asset('js/app.js') }}"></script>

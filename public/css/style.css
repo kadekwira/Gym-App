@@ -76,12 +76,15 @@ nav .button-signIn {
 .hero-text .group {
   display: flex;
   gap: 20px;
+  text-align: left;
+  width: 400px;
 }
 
 .hero-text h1 {
   font-size: 60px;
   color: white;
   font-weight: 700;
+  text-align: left;
 }
 
 .hero-text p {
@@ -1193,18 +1196,33 @@ footer .footer-column button:hover {
   color: white;
 }
 .form-container{
-    background-color: #222;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    width: 100%;
-    max-width: 450px
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-bottom:50px;
+}
+
+.form-container form{
+  width: 50%;
+  background-color: #222;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: left;
 }
 .form-group {
   margin-bottom: 20px;
 }
 .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em;
+}
+.form-group select {
   width: 100%;
   padding: 10px;
   border: none;
@@ -1247,78 +1265,6 @@ h1 {
   text-align: center;
 }
 
-.card {
-  position: relative;
-  background-color: #000;
-  border-radius: 50px;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.card img {
-  width: 100%;
-  height: 70%;
-  object-fit: cover; 
-}
-
-.card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  text-align: left;
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.card-overlay h2 {
-  font-size: 35px;
-  font-weight: 600;
-  margin: 0;
-  margin-top: 500px;
-}
-
-.card-details {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  font-size: 25px;
-  margin-top: 50px;
-  margin-bottom: 200px;
-}
-
-.intensity-duration-container {
-  display: flex;
-  align-items: center;
-  background-color: rgb(245, 245, 240);
-  padding: 5px 10px;
-  border-radius: 50px;
-  color: #000;
-}
-
-.intensity-duration-container i {
-  color: #F2212F;
-  font-weight: 600;
-  margin-right: 5px;
-}
-
-.intensity-duration-container .intensity, 
-.intensity-duration-container .duration {
-  margin: 0;
-}
-
-.strength-classes {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 30px;
-  font-weight: 600;
+.card-custom {
+  background-color: #333333;
 }

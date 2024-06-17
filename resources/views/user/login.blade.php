@@ -91,8 +91,8 @@
         <form class="login-form" action="/login" method="POST">
             @csrf
         <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="email" required>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
