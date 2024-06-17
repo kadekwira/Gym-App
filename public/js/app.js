@@ -20,18 +20,18 @@ window.onclick = function(event) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    var signinBtn = document.querySelector('.button-signIn');
-    var loginForm = document.getElementById('login-form');
-    var qrCodeSection = document.querySelector('.qr-code');
+// document.addEventListener('DOMContentLoaded', function() {
+//     var signinBtn = document.querySelector('.button-signIn');
+//     var loginForm = document.getElementById('login-form');
+//     var qrCodeSection = document.querySelector('.qr-code');
 
-    signinBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // Untuk mencegah tindakan default dari tautan
+//     signinBtn.addEventListener('click', function(e) {
+//         e.preventDefault(); // Untuk mencegah tindakan default dari tautan
 
-        loginForm.style.display = 'block';
-        qrCodeSection.style.display = 'none';
-    });
-});
+//         loginForm.style.display = 'block';
+//         qrCodeSection.style.display = 'none';
+//     });
+// });
 
 
 

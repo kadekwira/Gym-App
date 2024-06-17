@@ -63,13 +63,7 @@ nav .button-signIn {
   color: white;
   padding: 0.375rem 0.75rem;
   border-radius: 0.5rem;
-}
-
-nav .button-signIn:hover {
-  background-color: #F2212F;
-  color: white;
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.5rem;
+  color: white !important;
 }
 
 .nav-items {

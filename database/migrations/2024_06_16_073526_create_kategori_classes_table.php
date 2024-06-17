@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('class_bookings', function (Blueprint $table) {
+        Schema::create('kategori_classes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('class_id');
-            $table->bigInteger('user_id');
-            $table->datetime('booking_date');
-            $table->enum('status',['open', 'close','disabled']);
+            $table->string("nama_kategori");
+            $table->string("image");
+            $table->text("description");
+            $table->enum("type_image",['img','icon']);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('class_bookings');
+        Schema::dropIfExists('kategori_classes');
     }
 };

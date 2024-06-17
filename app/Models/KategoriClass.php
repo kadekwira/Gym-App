@@ -6,21 +6,18 @@ use App\Models\Kelas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Trainer extends Model
+class KategoriClass extends Model
 {
     use HasFactory;
-    
     protected $fillable = [
-        'trainer_name',
-        'trainer_photo',
-        'phone_number',
-        'address',
-        'experience',
-        'email',
+        "nama_kategori",
+        "image",
+        "description",
+        "type_image"
     ];
 
     public function classes()
     {
-        return $this->hasMany(Kelas::class, 'trainer_id');
+        return $this->hasMany(Kelas::class);
     }
 }

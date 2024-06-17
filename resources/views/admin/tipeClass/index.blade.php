@@ -3,13 +3,13 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Data Class</h1>
+      <h1>Data Kategori Class</h1>
     </div>
     <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <a href="{{route('data-class.create')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
+            <a href="{{route('tipe-class.create')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -17,60 +17,48 @@
                 <thead>                                 
                   <tr class="text-center">
                     <th >
-                      #
+                      No
                     </th>
-                    <th>Class Name</th>
+                    <th>Foto</th>
+                    <th>Name Kategori</th>
                     <th>Description</th>
-                    <th>Price</th>
-                    <th>Trainer</th>
-                    <th>Kategori</th>
-                    <th>Schedule</th>
-                    <th>Duration</th>
-                    <th>Capacity</th>
-                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody> 
                   @php
                       $no=1;
-                  @endphp
-                  @foreach ($datas as $data)
+                  @endphp         
+                      
+                  @foreach ($datas as $data)                      
                   <tr class="text-center">
                     <td>
                       {{$no}}
                     </td>
-                    <td>{{$data->class_name}}</td>
-                    <td>{!!$data->description!!}</td>
-                    <td>{{$data->class_price}}</td>
-                    <td>{{$data->trainer->trainer_name}}</td>
-                    <td>{{$data->kategori_class->nama_kategori}}</td>
-                    <td>{{$data->schedule}}</td>
-                    <td>{{$data->duration_minutes}}</td>
-                    <td>{{$data->capacity}}</td>
                     <td>
-                      @php
-                        $badgeClasses = [
-                          'active' => 'badge-success',
-                          'inactive' => 'badge-danger',
-                        ];
-                        $badgeClass = $badgeClasses[$data->status] ?? 'badge-default'; 
-                      @endphp
-                      <span class="badge {{ $badgeClass }}">{{ $data->status }}</span>
-                    </td>
+                      @if ($data->type_image=="img")
+                          <img src="{{ asset($data->image) }}" alt="Foto {{ $data->nama_kategori }}" width="20px">
+                      @else
+                          {!!$data->image!!}
+                      @endif
+                  </td>
+                    <td >{{$data->nama_kategori}}</td> 
+                    <td>{!!$data->description!!}</td> 
                     <td>
-                      <a href="{{route('data-class.edit',$data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                      <a href="{{route('tipe-class.edit',$data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                      <a onclick="confirmDelete(this)" data-url="{{route('tipe-class.destroy',$data->id)}}" class="btn btn-icon btn-danger text-white"><i class="fas fa-trash"></i></a>
                     </form>
                     </td>
                   </tr>
                   @php
-                      $no++;
+                   $no++;   
                   @endphp
-                  @endforeach                                
+                  @endforeach      
                 </tbody>
               </table>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -88,6 +76,7 @@
 @endsection
 
 @section('addJavascript')
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/datatables.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('newAdmin/dist/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js')}}"></script>
@@ -97,5 +86,39 @@
   $(function() {
     $('#tableDataAdmin').DataTable()
   })
+</script>
+<script>
+  confirmDelete = function(button) {
+    let url = $(button).data('url');
+    swal({
+      title: 'Konfirmasi Hapus',
+      text: 'Apakah Kamu Yakin Ingin Menghapus Data Ini?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then(function(value) {
+      if (value) {
+        $.ajax({
+          url: url,
+          type: 'DELETE',
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          success: function(result) {
+            swal('Data berhasil dihapus!', {
+              icon: 'success',
+            }).then(() => {
+              location.reload();
+            });
+          },
+          error: function(xhr) {
+            swal('Data gagal dihapus!', {
+              icon: 'error',
+            });
+          }
+        });
+      }
+    });
+  }
 </script>
 @endsection

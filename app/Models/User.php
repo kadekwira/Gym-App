@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\ClassBooking;
 use App\Models\MembershipType;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -54,5 +55,10 @@ class User extends Authenticatable
     public function membershipType()
     {
         return $this->belongsTo(MembershipType::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(ClassBooking::class, 'user_id', 'id');
     }
 }
