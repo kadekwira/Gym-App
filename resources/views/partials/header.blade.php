@@ -5,10 +5,9 @@
     </h4>
     <nav>
         <a href="" class="active">Home</a>
-        <a href="">About Us</a>
-        <a href="">Class</a>
-        <a href="">Membership</a>
-        <a href="testimonials">Testimonial</a>
+        <a href="{{ route('class.index') }}">Class</a>
+        <a href="">Trainer</a>
+        <a href="{{ route('freetrial.index') }}">Free Trial</a>
         @auth
         <a href="">QrCode</a>
         <div class="nav-item dropdown">

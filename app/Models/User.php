@@ -31,6 +31,7 @@ class User extends Authenticatable
         'membership_start',
         'membership_end',
         'status',
+        'role',
     ];
 
     /**
@@ -57,8 +58,15 @@ class User extends Authenticatable
         return $this->belongsTo(MembershipType::class);
     }
 
+<<<<<<< HEAD
     public function bookings()
     {
         return $this->hasMany(ClassBooking::class, 'user_id', 'id');
     }
+=======
+    public function isAdmin()
+    {
+        return $this->role === 'admin'; 
+>>>>>>> 622b03a81ac4064b38c749146504a9297ed36f86
+}
 }

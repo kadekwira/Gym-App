@@ -16,6 +16,9 @@ use App\Http\Controllers\BookingClassController;
 use App\Http\Controllers\KategoriClassController;
 use App\Http\Controllers\TipeMembershipController;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QrCodeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +41,11 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::get('/qrcode/{user}', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+
+
 Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 
-
+Route::get('/class', [ClassController::class, 'index'])->name('class.index');
 
 
 // Admin  with prefix
