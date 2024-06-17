@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TipeMembershipController;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\QrCodeController;
 
 
@@ -36,10 +37,17 @@ Route::post('/login',[AuthController::class,'login']);
 
 Route::get('/qrcode/{user}', [QrCodeController::class, 'generate'])->name('qrcode.generate');
 
-
+Route::get('/class', [ClassController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+  Route::get('/freetrial', [TrialController::class, 'index'])->name('freetrial.index');
+  Route::post('/freetrial', [TrialController::class, 'store'])->name('trial.store');
+  Route::get('/freetrial/{id}/edit', [TrialController::class, 'edit'])->name('trial.edit');
+  Route::put('/freetrial/{id}', [TrialController::class, 'update'])->name('trial.update');
+  Route::delete('/freetrial/{id}', [TrialController::class, 'destroy'])->name('trial.destroy');
+});
 Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 
-
+Route::get('/class', [ClassController::class, 'index'])->name('class.index');
 
 
 // Admin  with prefix

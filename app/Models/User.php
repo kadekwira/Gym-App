@@ -30,6 +30,7 @@ class User extends Authenticatable
         'membership_start',
         'membership_end',
         'status',
+        'role',
     ];
 
     /**
@@ -55,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(MembershipType::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin'; 
+}
 }
