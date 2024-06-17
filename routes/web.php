@@ -39,8 +39,10 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/qrcode/{user}', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+Route::get('/qrcode', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+
 Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 
 Route::get('/class', [ClassController::class, 'index'])->name('class.index');

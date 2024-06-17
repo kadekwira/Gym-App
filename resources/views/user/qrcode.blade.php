@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <head>
-    <title>Generate QR Code</title>
-</head>
-<body>
-    <div>
-        <img src="{{ $qrCodeUrl }}" alt="QR Code">
+@extends('layouts-user.app')
+
+@section('content')
+<section class="class">
+    <div class="container" style="width:100%;">
+        <div class="d-flex justify-content-center flex-column align-items-center">
+            <h2>Scann QrCode At Gym</h2>
+            <div class="">
+                {!! $qrCode !!}
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</section>
+@endsection

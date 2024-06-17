@@ -4,27 +4,31 @@
         <span>FITNES</span>
     </h4>
     <nav>
-        <a href="" class="active">Home</a>
+        <a href="#" class="active">Home</a>
         <a href="{{ route('class.index') }}">Class</a>
-        <a href="">Trainer</a>
-        <a href="{{ route('freetrial.index') }}">Free Trial</a>
+        <a href="#">Trainer</a>
+
         @auth
-        <a href="">QrCode</a>
+        <a href="{{ route('qrcode.generate') }}">QrCode</a>
         <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Profile
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ route('member.profile') }}">Show Profile</a></li>
-            <li><a class="dropdown-item" href="">Notification</a></li>
-            <li><a class="dropdown-item" href="">Logout</a></li>
-          </ul>
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Profile
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ route('member.profile') }}">Show Profile</a></li>
+                <li>
+                    <form action="{{ route('logout') }}" method="POST" class="dropdown-item">
+                        @csrf
+                        <button type="submit" class="btn">Logout</button>
+                    </form>
+                </li>
+            </ul>
         </div>
+
         @else
-        <a href="{{route('loginView')}}" class="button-signIn">Sign In</a>
+        <a href="{{ route('freetrial.index') }}">Free Trial</a>
+        <a href="{{ route('loginView') }}" class="button-signIn">Sign In</a>
         @endauth
     </nav>
 </header>
-<script>
-
-</script>

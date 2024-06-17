@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed, redirect to the intended page
-            return redirect()->route('dashboard.user');
+            return redirect()->route('dashboard.user')->with('success', 'Berhasil Login');
         }
 
         // Authentication failed, redirect back with an error message
@@ -31,5 +31,11 @@ class AuthController extends Controller
 
     public function loginView(){
         return view('user.login');
+    }
+
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('dashboard.user')->with('success', 'Berhasil LogOut');
     }
 }
