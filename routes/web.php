@@ -57,12 +57,11 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register.me
 Route::post('/save-step1', [RegisterController::class, 'saveStep1'])->name('saveStep1');
 Route::post('/midtrans/callback', [RegisterController::class, 'midtransCallback'])->name('midtransCallback');
 
-// Route::post('/midtrans/pay', [PaymentController::class, 'pay'])->name('midtrans.pay');
 
 // Admin  with prefix
 Route::prefix('admin')->group(function () {
   Route::get('/check_membership', [MemberController::class, 'checkMembership'])->name('checkMembership');
-  Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin']);
+  Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboardAdmin');
   Route::resource('/data-admin', AdminController::class);
   Route::resource('/tipe-membership', TipeMembershipController::class);
   Route::resource('/data-member', MemberController::class);
