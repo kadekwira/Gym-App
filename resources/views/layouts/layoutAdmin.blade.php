@@ -215,7 +215,7 @@
                         {{-- Dashboard --}}
                         <li class="menu-header">Dashboard</li>
                         <li>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('dashboardAdmin')}}">
                                 <i class="fas fa-chart-line"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -258,7 +258,7 @@
                                 <i class="fas fa-calendar"></i>
                                 <span>Activity</span>
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('booking.index')}}">
                                 <i class="fas fa-table"></i>
                                 <span>Class List & Book</span>
                             </a>
@@ -266,7 +266,7 @@
                                 <i class="fas fa-bullhorn"></i>
                                 <span>Information Gym</span>
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('transaction.index')}}">
                                 <i class="fas fa-credit-card"></i>
                                 <span>Transaction</span>
                             </a>
