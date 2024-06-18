@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\InformationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
@@ -8,6 +7,8 @@ use App\Http\Controllers\TrialController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TipeMembershipController;
+use App\Http\Controllers\ActivityMemberController;
+use App\Http\Controllers\InformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,5 +65,11 @@ Route::prefix('admin')->group(function () {
   Route::get('/information-gym/edit/{informationgym}', [InformationController::class, 'edit'])->name('editInformation');
   Route::put('/information-gym/edit/{informationgym}', [InformationController::class, 'update'])->name('updateInformation');
   Route::get('/information-gym/destroy/{infomationgym}', [InformationController::class, 'destroy'])->name('deleteInformation');
+
+  // Activity Member
+  Route::get('/activity-member', [ActivityMemberController::class, 'index'])->name('activityMember');
+  Route::get('/activity-member/create', [ActivityMemberController::class, 'create'])->name('createActivity');
+  Route::post('/activity-member/create', [ActivityMemberController::class, 'store'])->name('saveActivity');
+  Route::get('/activity-member/edit', [ActivityMemberController::class, 'edit'])->name('editActivity');
 });
 
