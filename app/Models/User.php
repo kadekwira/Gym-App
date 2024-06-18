@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Transaction;
 use App\Models\ClassBooking;
+use App\Models\ActivityMember;
 use App\Models\MembershipType;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -67,5 +68,9 @@ class User extends Authenticatable
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+    public function activity()
+    {
+        return $this->hasMany(ActivityMember::class);
     }
 }

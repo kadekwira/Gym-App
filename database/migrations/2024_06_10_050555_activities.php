@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->date('date');
             $table->datetime('check_in');
-            $table->datetime('check_out');
+            $table->datetime('check_out')->nullable();
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
     {{-- Admin Css --}}
     <link rel="stylesheet" href="{{ asset('newAdmin/css_custom/admin.css') }}">
     @yield('addCss')
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="/newAdmin/dist/assets/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/newAdmin/dist/assets/modules/fontawesome/css/all.min.css">
