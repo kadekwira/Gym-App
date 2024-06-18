@@ -4,7 +4,7 @@
         <span>FITNESYESS</span>
     </h4>
     <nav>
-        <a href="#" class="active">Home</a>
+        <a href="{{route('dashboard.user')}}" >Home</a>
         <a href="{{ route('class.index') }}">Class</a>
         <a href="{{route('trainer.index')}}">Trainer</a>
 

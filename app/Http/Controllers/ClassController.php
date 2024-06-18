@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Kelas;
 use App\Models\ClassBooking;
 use Illuminate\Http\Request;
+use App\Models\KategoriClass;
 use App\Notifications\GymClassBookingNotification;
 
 class ClassController extends Controller
@@ -17,7 +18,7 @@ class ClassController extends Controller
 
         // Ambil semua kelas yang statusnya 'active'
         $classes = Kelas::where('status', 'open')->get();
-
+        $kategoriClass = KategoriClass::all();
         foreach ($classes as $class) {
             $class->bookings_count = $class->bookings()->count(); 
             if (auth()->check()) {
@@ -30,7 +31,7 @@ class ClassController extends Controller
                 $class->status = ($remainingCapacity > 0) ? 'Open' : 'Closed';
             }
         }
-        return view('user.class',compact('classes'));
+        return view('user.class',compact('classes','kategoriClass'));
     }
 
     public function booking(Request $request,string $id){

@@ -7,26 +7,22 @@
         <h2>The Best Programs We Offer For You</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione iusto, enim saepe mollitia vero labore omnis illum totam! Accusamus.</p>
         <div class="class-cards">
-            <div class="class-card" data-class="strength">
-                <i class="fas fa-dumbbell"></i>
-                <h3>Strength Training</h3>
-                <p>Build muscle strength and endurance with our expert trainers.</p>
-            </div>
-            <div class="class-card" data-class="yoga">
-                <i class="fa-solid fa-person-praying"></i>
-                <h3>Body Yoga</h3>
-                <p>Relax and strengthen your body with our yoga sessions.</p>
-            </div>
-            <div class="class-card" data-class="bodybuilding">
-            <img src="{{ asset('assets/img/bodybuilding.png') }}" alt="bodybuilding">
-                <h3>Body Building</h3>
-                <p>Achieve your bodybuilding goals with customized plans.</p>
-            </div>
-            <div class="class-card" data-class="weightloss">
-                <i class="fas fa-weight"></i>
-                <h3>Weight Loss</h3>
-                <p>Effective weight loss programs to get you in shape.</p>
-            </div>
+            @foreach ($kategoriClass as $item)
+                @if ($item->type_image=="img")
+                    <div class="class-card" data-class="bodybuilding">
+                        <img src="{{ asset($item->image) }}" alt="bodybuilding">
+                        <h3>Body Building</h3>
+                        <p>Achieve your bodybuilding goals with customized plans.</p>
+                    </div>
+                @else
+                <div class="class-card" data-class="strength">
+                     {!!$item->image!!}
+                    <h3>{{$item->nama_kategori}}</h3>
+                    {!!$item->description!!}
+                </div>
+                @endif
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -34,7 +30,7 @@
 <main>
     <h1>Explore All Classes</h1>
     <div class="container">
-        <div class="d-flex gap-3 flex-wrap">
+        <div class="d-flex gap-3 flex-wrap mb-4 mt-5">
             @forelse ($classes as $class)
             @php
                 $schedule = \Carbon\Carbon::parse($class->schedule)->translatedFormat('l, j F Y H:i');
@@ -45,7 +41,7 @@
                 ];
                 $badgeClass = $badgeClasses[$class->status] ?? 'badge-default'; // Default to 'badge-default' if status not found
             @endphp
-                       <div class="card card-custom" style="width: 20rem;">
+                       <div class="card card-custom" style="width: 18rem;">
                            <img src="{{ asset('storage/' . $class->image) }}" class="card-img-top" alt="{{ $class->class_name }}" height="200px">
                            <div class="card-body">
                                <h5 class="card-title">{{ $class->class_name }}</h5>

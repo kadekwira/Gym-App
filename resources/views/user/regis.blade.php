@@ -147,7 +147,15 @@
         success: function(response) {
             console.log('Callback handled successfully:', response);
             // Redirect ke halaman index atau halaman lain sesuai kebutuhan
-            window.location.href = "{{ route('dashboard.user') }}";
+            swal({
+                    title: 'Sukses',
+                    text: 'Pendaftaran Member Berhasil',
+                    icon: 'success',
+                }).then(function() {
+                   
+                    window.location.href = "{{ route('dashboard.user') }}";
+                });
+
         },
         error: function(err) {
             console.error('Error handling callback:', err);

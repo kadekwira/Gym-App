@@ -31,6 +31,7 @@ h1 {
 .profile-table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 30px;
 }
 
 .profile-table th, .profile-table td {
@@ -73,9 +74,10 @@ h1 {
             </tr>
             <tr>
                 <th>Member Type</th>
-                <td>{{ $user->membershipType->name }}</td>
+                <td>{{ $membership->title }}</td>
             </tr>
         </table>
+        <a href="{{route('dashboard.user')}}" class="btn btn-danger" style="font-size:16px;">Back</a>
     </div>
 </body>
 </html>

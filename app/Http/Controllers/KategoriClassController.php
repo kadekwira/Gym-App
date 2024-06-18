@@ -55,7 +55,7 @@ class KategoriClassController extends Controller
         ]);
 
         // Redirect back with a success message
-        return redirect()->route('tipe-class.index')->with('success', 'KategorClass created successfully.');
+        return redirect()->route('tipe-class.index')->with('success', 'Kategori Class created successfully.');
     }
 
     /**
