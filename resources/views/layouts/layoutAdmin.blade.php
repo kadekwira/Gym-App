@@ -33,8 +33,8 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <script src="https://kit.fontawesome.com/2f708729c7.js" crossorigin="anonymous"></script>
 
-
-
+    <!-- Instascan  -->
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -257,7 +257,7 @@
                         <!-- Start Features -->
                         <li class="menu-header">Features</li>
                         <li>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('activityMember')}}">
                                 <i class="fas fa-calendar"></i>
                                 <span>Activity</span>
                             </a>

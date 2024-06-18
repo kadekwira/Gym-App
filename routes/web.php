@@ -21,6 +21,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BookingClassController;
 use App\Http\Controllers\KategoriClassController;
 use App\Http\Controllers\TipeMembershipController;
+use App\Http\Controllers\ActivityMemberController;
 
 
 
@@ -86,6 +87,11 @@ Route::prefix('admin')->group(function () {
   Route::put('/information-gym/edit/{informationgym}', [InformationController::class, 'update'])->name('updateInformation');
   Route::get('/information-gym/destroy/{infomationgym}', [InformationController::class, 'destroy'])->name('deleteInformation');
 
+  // Activity Member
+  Route::get('/activity-member', [ActivityMemberController::class, 'index'])->name('activityMember');
+  Route::get('/activity-member/create', [ActivityMemberController::class, 'create'])->name('createActivity');
+  Route::post('/activity-member/create', [ActivityMemberController::class, 'store'])->name('saveActivity');
+  Route::get('/activity-member/edit', [ActivityMemberController::class, 'edit'])->name('editActivity');
 
 
   // Booking Class
