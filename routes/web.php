@@ -13,6 +13,7 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FreeTrialController;
 use App\Http\Controllers\InformationController;
@@ -58,6 +59,10 @@ Route::post('/save-step1', [RegisterController::class, 'saveStep1'])->name('save
 Route::post('/midtrans/callback', [RegisterController::class, 'midtransCallback'])->name('midtransCallback');
 
 
+
+Route::get('admin/login', [AuthAdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('admin/login', [AuthAdminController::class, 'login'])->name('admin.auth');
+Route::post('admin/logout', [AuthAdminController::class, 'logout'])->name('admin.logout');
 // Admin  with prefix
 Route::prefix('admin')->group(function () {
   Route::get('/check_membership', [MemberController::class, 'checkMembership'])->name('checkMembership');

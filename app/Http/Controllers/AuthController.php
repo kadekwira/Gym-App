@@ -33,6 +33,6 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('dashboard.user')->with('success', 'Berhasil LogOut');
+        return redirect()->route('dashboard.user')->with('success', 'Berhasil Logout');
     }
 }
