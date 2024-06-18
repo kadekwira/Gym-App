@@ -7,7 +7,7 @@
                 <h1>Get Healthy Body with the Perfect Exercises</h1>
                 <p>Join us and start your fitness journey today!</p>
                 <div class="group">
-                    <a href="/register" class="btn btn-danger">Join Membership</a>
+                    <a href="{{route('register.member')}}" class="btn btn-danger">Join Membership</a>
                     <a href="https://www.youtube.com/channel/YourChannelID" class="btn btn-video" target="_blank">
                         <i class="fas fa-play"></i>
                         <span>Watch Videos</span>
@@ -86,22 +86,11 @@
     </div>
 </section>
 
-<!-- Hidden modals for detailed descriptions -->
-<div id="class-detail-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <div class="modal-body">
-            <!-- Content will be dynamically loaded here -->
-        </div>
-    </div>
-</div>
+
 <section class="plans">
     <div class="container">
         <h2>Choose The Best Plan</h2>
         <p>Choose a plan that works best for your fitness goals. Enjoy flexibility in making changes.</p>
-        <div class="plan-duration">
-            <button class="duration-btn" id="toggleDuration">Monthly</button>
-        </div>
         <div class="plan-cards monthly">
             <div class="plan-card">
                 <h3>Discoveri</h3>
@@ -182,7 +171,7 @@
 
 
 
-<section  class="testimonials">
+<section class="testimonials">
     <div id="testimonials" class="container">
         <div class="testimonial-header">
             <h2 class="section-title">What Our Happy Clients Say About Us</h2>
@@ -191,25 +180,19 @@
             <div class="testimonial-text">
                 <p>Read through the experiences shared by our clients and see how we have helped them achieve their fitness goals.</p>
                 <div class="caterpillar">
-                    <img src="{{ asset('assets/img/gym1.jpg') }}" alt="Client 1" class="circle">
-                    <img src="{{ asset('assets/img/gym2.jpg') }}" alt="Client 2" class="circle">
-                    <img src="{{ asset('assets/img/gym3.jpg') }}" alt="Client 3" class="circle">
-                    <img src="{{ asset('assets/img/gym4.jpeg') }}" alt="Client 4" class="circle">
                     <div class="plus-container">
-                        <div class="circle plus">+</div>
                         <div class="description">
                             <span class="star">⭐</span>
-                            <span class="text">4.9/5.0 Reviews </span>
+                            <span class="text">4.9/5.0 Reviews</span>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
             <div class="testimonial-carousel">
-                <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+                <button class="carousel-control prev"><i class="fa-solid fa-angle-left"></i></button>
                 <div class="testimonial-cards">
-                    <div class="testimonial-card">
-                    <div class="testimonial-author">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-author">
                             <img src="{{ asset('assets/img/gym1.jpg') }}" alt="Client Photo">
                             <div class="author-info">
                                 <h4>Fatimah Siti</h4>
@@ -220,8 +203,8 @@
                             <p>“Fitneskia has transformed my life! The trainers are amazing and the programs are tailored to fit my needs.”</p>
                         </div>
                     </div>
-                    <div class="testimonial-card">
-                    <div class="testimonial-author">
+                    <div class="testimonial-card ">
+                        <div class="testimonial-author">
                             <img src="{{ asset('assets/img/gym2.jpg') }}" alt="Client Photo">
                             <div class="author-info">
                                 <h4>John Doe</h4>
@@ -233,11 +216,12 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control next" onclick="nextSlide()">❯</button>
+                <button class="carousel-control next"><i class="fa-solid fa-angle-right"></i></button>
             </div>
         </div>
     </div>
 </section>
+
 
 <button id="chatbot-toggler" class="chatbot-toggler">
     <span class="material-symbols-outlined">mode_comment</span>
@@ -267,4 +251,37 @@
         <span id="send-btn" class="material-symbols-outlined">send</span>
     </div>
 </div>
+@endsection
+@section('addJavascript')
+    <script>
+        let currentIndex = 0;
+
+function showSlide(index) {
+  const slides = document.querySelectorAll('.testimonial-card');
+  if (index >= slides.length) {
+    currentIndex = 0;
+  } else if (index < 0) {
+    currentIndex = slides.length - 1;
+  } else {
+    currentIndex = index;
+  }
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentIndex);
+  });
+}
+
+function nextSlide() {
+  showSlide(currentIndex + 1);
+}
+
+function prevSlide() {
+  showSlide(currentIndex - 1);
+}
+
+document.querySelector('.carousel-control.next').addEventListener('click', nextSlide);
+document.querySelector('.carousel-control.prev').addEventListener('click', prevSlide);
+
+showSlide(currentIndex);
+    </script>
 @endsection

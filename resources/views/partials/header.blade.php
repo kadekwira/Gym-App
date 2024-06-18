@@ -1,12 +1,12 @@
 <header>
     <h4 class="title-header">
         <i class="fa-solid fa-dumbbell"></i>
-        <span>FITNES</span>
+        <span>FITNESYESS</span>
     </h4>
     <nav>
         <a href="#" class="active">Home</a>
         <a href="{{ route('class.index') }}">Class</a>
-        <a href="#">Trainer</a>
+        <a href="{{route('trainer.index')}}">Trainer</a>
 
         @auth
         <a href="{{ route('qrcode.generate') }}">QrCode</a>

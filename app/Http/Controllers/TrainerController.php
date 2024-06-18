@@ -13,6 +13,15 @@ class TrainerController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function getTrainer(){
+        try {
+            $trainers = Trainer::all();
+            return view('user.trainer', compact('trainers'));
+        } catch (Exception $e) {
+            return redirect()->route('dashboard.user')->with('error', 'Failed to retrieve trainers');
+        }
+     }
     public function index()
     {
         try {

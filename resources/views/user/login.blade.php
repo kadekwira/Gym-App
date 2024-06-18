@@ -83,6 +83,7 @@
 
 </style>
 <body>
+    @include('sweetalert::alert')
     <div class="login-container">
         <div class="login-logo">
         <i class="fa-solid fa-dumbbell"></i>

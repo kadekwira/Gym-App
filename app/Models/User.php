@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Transaction;
 use App\Models\ClassBooking;
 use App\Models\MembershipType;
 use Laravel\Sanctum\HasApiTokens;
@@ -31,7 +32,7 @@ class User extends Authenticatable
         'membership_start',
         'membership_end',
         'status',
-        'role',
+
     ];
 
     /**
@@ -61,5 +62,10 @@ class User extends Authenticatable
     public function bookings()
     {
         return $this->hasMany(ClassBooking::class, 'user_id', 'id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
