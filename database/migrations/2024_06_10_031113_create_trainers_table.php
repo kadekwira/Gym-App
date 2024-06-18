@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('trainer_photo');
             $table->string('phone_number');
             $table->string('address');
-            $table->string('experience');
+            $table->string('experience')->nullable();
             $table->timestamps();
         });
     }

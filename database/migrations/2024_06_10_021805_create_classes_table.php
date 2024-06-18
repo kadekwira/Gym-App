@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
             $table->string('class_name');
+            $table->bigInteger('id_kategori_class');
+            $table->string('image');
             $table->string('description');
-            $table->string('facility');
             $table->decimal('class_price', 9, 0)->nullable();
             $table->integer('trainer_id');
-            $table->date('schedule');
+            $table->datetime('schedule');
             $table->integer('duration_minutes');
             $table->integer('capacity');
-            $table->enum('status',['active', 'inactive']);
+            $table->enum('status',['open','close']);
             $table->timestamps();
         });
     }

@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('class_bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('class_id');
-            $table->integer('user_id');
-            $table->date('booking_date');
-            $table->integer('session_booking')->nullable();
-            $table->enum('status',['active', 'inactive']);
+            $table->bigInteger('class_id');
+            $table->bigInteger('user_id');
+            $table->datetime('booking_date');
+            $table->enum('status',['open', 'close','disabled']);
             $table->timestamps();
         });
     }

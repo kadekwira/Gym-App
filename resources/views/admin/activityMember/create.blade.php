@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="tableDataAdmin">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center">
                                         <th>ID User</th>
@@ -30,7 +30,7 @@
                         <div class="card-footer text-right">
                             <button id="saveScanBtn" class="btn btn-primary">Submit</button>
                         </div>
-                        <video id="preview" style="width: 50%"></video>
+                        <video id="preview" style="width: 20%"></video>
                     </div>
                 </div>
             </div>
@@ -41,19 +41,7 @@
 
 @section('addJavascript')
 
-@section('addCss')
-<link rel="stylesheet" href="{{asset('newAdmin/dist/assets/modules/datatables/datatables.min.css')}}">
-<link rel="stylesheet" href="{{asset('newAdmin/dist/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('newAdmin/dist/assets/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
-@endsection
-
-@section('addJavascript')
-<script src="{{asset('js/sweetalert.min.js')}}"></script>
-<script src="{{asset('newAdmin/dist/assets/modules/datatables/datatables.min.js')}}"></script>
-<script src="{{asset('newAdmin/dist/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('newAdmin/dist/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js')}}"></script>
-<script src="{{asset('newAdmin/dist/assets/modules/jquery-ui/jquery-ui.min.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
     let scannedResults = [];
 
@@ -78,11 +66,11 @@
         let startTime = getCurrentTime();
         let newRow = `
             <tr>
-                <td>${content}</td>
-                <td>${scanDate}</td>
-                <td>${startTime}</td>
-                <td>null</td>
-                <td>
+                <td class="text-center">${content}</td>
+                <td class="text-center">${scanDate}</td>
+                <td class="text-center">${startTime}</td>
+                <td class="text-center">...</td>
+                <td class="text-center">
                     <button type="button" class="btn btn-sm btn-danger" onclick="removeRow(this)">Hapus</button>
                 </td>
             </tr>    
@@ -123,6 +111,8 @@
     function saveScanToDatabase() {
         console.log(scannedResults);
 
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
         // Mengirim data ke server
         axios.post('{{route('saveActivity')}}', {
             scans: scannedResults
@@ -138,9 +128,4 @@
     }
 </script>
 
-<script>
-    $(function () {
-        $('#tableDataAdmin').DataTable()
-    })
-</script>
 @endsection

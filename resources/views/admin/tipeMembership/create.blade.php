@@ -44,13 +44,13 @@
                   name="by" placeholder="bulan/tahun">
                 </div>
               </div>
+
               <div class="col-12">
                 <div class="form-group">
-                  <label >Description</label>
-                    <textarea class="summernote" name="description"></textarea>
+                  <label>Description</label>
+                  <textarea class="summernote" name="description"></textarea>
                 </div>
               </div>
-
 
             </div>
             <div class="card-footer text-right">

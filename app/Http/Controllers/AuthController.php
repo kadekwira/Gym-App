@@ -19,13 +19,20 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed, redirect to the intended page
-            return redirect()->intended('dashboard.user');
+            return redirect()->route('dashboard.user')->with('success', 'Berhasil Login');
         }
 
         // Authentication failed, redirect back with an error message
-        return redirect()->back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return redirect()->back()->withErrors(['error' => 'Email dan Password Salah!']);
+    }
+
+    public function loginView(){
+        return view('user.login');
+    }
+
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('dashboard.user')->with('success', 'Berhasil LogOut');
     }
 }

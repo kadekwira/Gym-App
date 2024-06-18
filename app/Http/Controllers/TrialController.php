@@ -6,13 +6,14 @@ use App\Models\TrialDay;
 use App\Http\Requests\StoreTrialDayRequest;
 use App\Http\Requests\UpdateTrialDayRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TrialController extends Controller
 {
     public function index()
     {
-        $datas = TrialDay::all();
-        return view('admin.dataTrial.index', compact('datas'));
+            $datas = TrialDay::all();
+            return view('admin.dataTrial.index', compact('datas'));   
     }
 
     public function create()
@@ -22,6 +23,7 @@ class TrialController extends Controller
 
     public function store(StoreTrialDayRequest $request)
     {
+
         try {
             TrialDay::create($request->validated());
             return redirect()->route('data-trial.index')->with('success', 'Data Berhasil Disimpan');

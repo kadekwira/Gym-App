@@ -9,7 +9,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <a href="#" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
+            <a href="{{route('data-class.create')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -19,35 +19,54 @@
                     <th >
                       #
                     </th>
-                    <th>Task Name</th>
-                    <th>Progress</th>
-                    <th>Members</th>
-                    <th>Due Date</th>
+                    <th>Class Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Trainer</th>
+                    <th>Kategori</th>
+                    <th>Schedule</th>
+                    <th>Duration</th>
+                    <th>Capacity</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>                                 
+                <tbody> 
+                  @php
+                      $no=1;
+                  @endphp
+                  @foreach ($datas as $data)
                   <tr class="text-center">
                     <td>
-                      1
+                      {{$no}}
                     </td>
-                    <td>Create a mobile app</td>
-                    <td class="align-middle">
-                      <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                        <div class="progress-bar bg-success" data-width="100%"></div>
-                      </div>
+                    <td>{{$data->class_name}}</td>
+                    <td>{!!$data->description!!}</td>
+                    <td>{{$data->class_price}}</td>
+                    <td>{{$data->trainer->trainer_name}}</td>
+                    <td>{{$data->kategori_class->nama_kategori}}</td>
+                    <td>{{$data->schedule}}</td>
+                    <td>{{$data->duration_minutes}}</td>
+                    <td>{{$data->capacity}}</td>
+                    <td>
+                      @php
+                        $badgeClasses = [
+                          'open' => 'badge-success',
+                          'close' => 'badge-danger',
+                        ];
+                        $badgeClass = $badgeClasses[$data->status] ?? 'badge-default'; 
+                      @endphp
+                      <span class="badge {{ $badgeClass }}">{{ $data->status }}</span>
                     </td>
                     <td>
-                      <img alt="image" src="assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                    </td>
-                    <td>2018-01-20</td>
-                    <td><div class="badge badge-success">Completed</div></td>
-                    <td>
-                      <a href="#" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                      <a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                      <a href="{{route('data-class.edit',$data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                    </form>
                     </td>
                   </tr>
+                  @php
+                      $no++;
+                  @endphp
+                  @endforeach                                
                 </tbody>
               </table>
             </div>

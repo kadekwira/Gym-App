@@ -31,8 +31,8 @@
               </div>
               <div class="col-3">
                 <div class="form-group">
-                  <label>Phone</label>
-                  <input type="number" class="form-control" name="phone">
+                  <label>Phone </label>
+                  <input type="number" class="form-control" name="phone" >
                 </div>
               </div>
               <div class="col-12">

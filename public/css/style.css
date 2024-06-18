@@ -63,13 +63,7 @@ nav .button-signIn {
   color: white;
   padding: 0.375rem 0.75rem;
   border-radius: 0.5rem;
-}
-
-nav .button-signIn:hover {
-  background-color: #F2212F;
-  color: white;
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.5rem;
+  color: white !important;
 }
 
 .nav-items {
@@ -82,12 +76,15 @@ nav .button-signIn:hover {
 .hero-text .group {
   display: flex;
   gap: 20px;
+  text-align: left;
+  width: 400px;
 }
 
 .hero-text h1 {
   font-size: 60px;
   color: white;
   font-weight: 700;
+  text-align: left;
 }
 
 .hero-text p {
@@ -148,14 +145,15 @@ nav .button-signIn:hover {
   margin: 20px;
   /* Margin untuk memberikan jarak */
 }
-
 /* End Hero */
 
 
 
 
 
+
 /* General reset and styling */
+
 
 
 
@@ -248,7 +246,6 @@ nav .button-signIn:hover {
   flex: 1;
   text-align: right;
   z-index: 1;
-  position: relative;
 }
 
 .hero-image img {
@@ -303,8 +300,8 @@ nav .button-signIn:hover {
 
 .trial-container .image .badge {
   position: absolute;
-  width: 35%;
-  height: fit-content;
+  width:35%;
+  height:fit-content;
   bottom: 30px;
   left: 350px;
   background-color: #fff;
@@ -353,6 +350,51 @@ nav .button-signIn:hover {
   font-weight: bold;
   transition: background-color 0.3s ease;
 
+}
+
+
+/* CSS untuk QR Code Section */
+.qr-code-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.qr-code-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.qr-code-section img {
+  max-width: 150px;
+  width: 80%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .qr-code-section h2 {
+      font-size: 20px;
+  }
+
+  .qr-code-section img {
+      max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qr-code-section h2 {
+      font-size: 18px;
+  }
+
+  .qr-code-section img {
+      max-width: 120px;
+  }
 }
 
 
@@ -522,8 +564,7 @@ nav .button-signIn:hover {
   margin: 0 auto;
   padding: 20px 0;
 }
-
-h2 {
+ h2 {
   font-size: 35px;
   color: white;
   font-weight: 700;
@@ -666,39 +707,25 @@ p {
 .caterpillar {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
-.circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
-}
 
-.circle:not(:first-child) {
-  margin-left: -10px;
-}
 
 .plus-container {
   display: flex;
   align-items: center;
+  justify-content:center;
+  width: 100%;
   gap: 10px;
 }
 
-.plus {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
+
 
 .description {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   font-size: 18px;
 }
@@ -711,19 +738,24 @@ p {
   font-size: 18px;
 }
 
+
+
 .testimonial-carousel {
+  left: 30px;
   flex: 2;
   position: relative;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  justify-content: flex-end;
+  justify-content: center;
+  gap: 20px; /* Add space between elements */
 }
 
-.testimonial-card-wrapper {
+.testimonial-cards {
   display: flex;
-  width: 300px;
   overflow: hidden;
+  width: 80%; /* Adjust width as needed */
+  justify-content: center;
+  gap:20px;
 }
 
 .testimonial-card {
@@ -731,12 +763,11 @@ p {
   border: 1px solid #555;
   border-radius: 10px;
   padding: 20px;
-  width: 300px;
+  width: 360px;
   text-align: center;
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-right: 20px;
-  flex-shrink: 0;
+  transition: transform 0.5s ease-in-out;
   display: none;
 }
 
@@ -786,21 +817,23 @@ p {
 .carousel-control {
   background: none;
   border: none;
-  color: #fff;
-  font-size: 2em;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
-  z-index: 2;
 }
 
 .carousel-control.prev {
-  position: absolute;
-  left: -30px;
+  left: 20px;
+  color: white;
 }
 
 .carousel-control.next {
-  position: absolute;
-  right: -30px;
+  right: 20px;
+  color: white;
 }
+
 
 /* Footer styling */
 footer {
@@ -1137,4 +1170,92 @@ footer .footer-column button:hover {
   #chatbot header span {
     display: block;
   }
+}
+
+/* freetrial */
+
+ .freetrial-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000; 
+}
+
+.container h2{
+  padding-top: 50px;
+  padding-bottom: 20px;
+  color: white;
+}
+.form-container{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-bottom:50px;
+}
+
+.form-container form{
+  width: 50%;
+  background-color: #222;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em;
+}
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em;
+}
+
+.form-group label{
+    color: white;
+  display: block;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+
+}
+.btn-danger{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* class2 */
+main {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: white;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-custom {
+  background-color: #333333;
 }
