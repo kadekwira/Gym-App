@@ -14,6 +14,7 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FreeTrialController;
 use App\Http\Controllers\InformationController;
@@ -38,16 +39,9 @@ use App\Http\Controllers\ActivityMemberController;
 */
 
 // User With Not Prefix
-Route::get('/', function () {
-  return view('user.index');
-})->name('dashboard.user');
-
+Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard.user');
 Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::get('/qrcode', [QrCodeController::class, 'generate'])->name('qrcode.generate');
-Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
 Route::get('/class', [ClassController::class, 'index'])->name('class.index');
 Route::post('/class/booking/{id}', [ClassController::class, 'booking'])->name('class.booking');
 
@@ -58,10 +52,23 @@ Route::post('/freetrial/store', [FreeTrialController::class, 'store'])->name('fr
 Route::get('/register', [RegisterController::class, 'index'])->name('register.member');
 Route::post('/save-step1', [RegisterController::class, 'saveStep1'])->name('saveStep1');
 Route::post('/midtrans/callback', [RegisterController::class, 'midtransCallback'])->name('midtransCallback');
+Route::middleware('auth.user')->group(function(){
+  Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+  Route::get('/qrcode', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+  Route::get('/profile', [MemberController::class, 'showProfile'])->name('member.profile');
+
+});
+
+
+
+
+Route::get('admin/login', [AuthAdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('admin/login', [AuthAdminController::class, 'login'])->name('admin.auth');
+Route::post('admin/logout', [AuthAdminController::class, 'logout'])->name('admin.logout');
 
 
 // Admin  with prefix
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth.admin')->group(function () {
   Route::get('/check_membership', [MemberController::class, 'checkMembership'])->name('checkMembership');
   Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboardAdmin');
   Route::resource('/data-admin', AdminController::class);

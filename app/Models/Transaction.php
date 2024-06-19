@@ -9,8 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Transaction extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+
     protected $table = 'transactions';
     protected $fillable = [
+        'id',
         "user_id",
         "total",
         "date_time",

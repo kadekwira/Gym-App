@@ -10,8 +10,13 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
+            @if (auth()->guard('admin')->user()->role!='Admin')
             <a href="{{route('data-member.create')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
             <a  href="{{route('checkMembership')}}"  class="btn btn-icon btn-info ml-2 button-header-add"><i class="fas fa-user-check"></i> </a>
+            @else
+            <a  href="{{route('checkMembership')}}"  class="btn btn-icon btn-info ml-auto button-header-add"><i class="fas fa-user-check"></i> </a>
+            @endif
+
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -46,8 +51,13 @@
                       <span class="badge {{$data->status == 'inactive' ? 'badge-danger' : 'badge-success'}}">{{$data->status}}</span>
                     </td>
                     <td>
+                      @if (auth()->guard('admin')->user()->role!='Admin')
                       <button  data-id="{{ $data->id }}" class="btn btn-icon btn-info btn-detail"><i class="far fa-eye"></i></button>
                       <a href="{{route('data-member.edit',$data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                      @else
+                      <button  data-id="{{ $data->id }}" class="btn btn-icon btn-info btn-detail"><i class="far fa-eye"></i></button>
+                      @endif
+
                     </td>
                   </tr>
                   @php

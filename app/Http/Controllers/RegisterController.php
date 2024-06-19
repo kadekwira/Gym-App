@@ -6,6 +6,7 @@ use Midtrans\Snap;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Transaction;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\MembershipType;
 use Illuminate\Support\Facades\Hash;
@@ -41,6 +42,7 @@ class RegisterController extends Controller
         $user = User::create($validatedData);
 
         $transaction = Transaction::create([
+            'id'=>(string) Str::uuid(),
             'user_id' => $user->id,
             'total' => $this->calculateMembershipPrice($request->membership_type_id),
             'date_time' => now(), // Tanggal dan waktu saat ini

@@ -9,6 +9,8 @@ use App\Models\Trainer;
 use App\Models\TrialDay;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\KategoriClass;
+use App\Models\ActivityMember;
 use App\Models\MembershipType;
 
 class DashboardController extends Controller
@@ -19,6 +21,8 @@ class DashboardController extends Controller
         $member =  User::where('status','active')->count();
         $trainer =  Trainer::count();
         $class =  Kelas::count();
+        $act = ActivityMember::with('user')->take(3)->get();
+
 
         // Menghitung jumlah member baru per bulan
         $months = [
@@ -72,6 +76,15 @@ class DashboardController extends Controller
             $transactionData[$month - 1] = $total;
         }
 
-        return view('admin.dashboardAdmin',compact('admin','member','trainer','class','userCounts','trialCounts','membershipData','membershipLabels','transactionData'));
+        return view('admin.dashboardAdmin',compact('admin','member','trainer','class','userCounts','trialCounts','membershipData','membershipLabels','transactionData','act'));
+    }
+
+    public function dashboard(){
+        $kategori = MembershipType::all();
+        $trainer = Trainer::all()->count();
+        $member = User::all()->count();
+        $kelas = Kelas::all()->count();
+        $kategoriClass = KategoriClass::all();
+        return view('user.index',compact('kategori','trainer','member','kelas','kategoriClass'));
     }
 }

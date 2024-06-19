@@ -14,25 +14,33 @@
                             class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
                     </div>
                     <div class="card-body">
-                        @if (Session::has('message'))
-                            <script>
-                                swal("Success", "{{ Session::get('message') }}", 'success', {
-                                    button: true,
-                                    button: "OK",
-                                });
-                            </script>
-                        @endif
                         <div class="table-responsive">
                             <table class="table table-striped" id="tableDataAdmin">
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>ID User</th>
-                                        <th>Date</th>
+                                        <th>User</th>
                                         <th>Check In</th>
-                                        <th>Check Out</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @php
+                                    $no=1;
+                                @endphp         
+                                    
+                                @foreach ($datas as $data)                      
+                                <tr class="text-center">
+                                  <td>
+                                    {{$no}}
+                                  </td>
+                                  <td>{{$data->user->first_name ." ". $data->user->last_name}}</td> 
+                                  <td>{{$data->check_in}}</td> 
+                                </tr>
+                                @php
+                                 $no++;   
+                                @endphp
+                                @endforeach    
+                                </tbody>
                             </table>
                         </div>
                     </div>

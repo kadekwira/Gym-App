@@ -107,32 +107,21 @@
           </div>
           <div class="card-body">             
             <ul class="list-unstyled list-unstyled-border">
+              @forelse ($act as $data)
               <li class="media">
                 <img class="mr-3 rounded-circle" width="50" src="{{url('newAdmin')}}/dist/assets/img/avatar/avatar-1.png" alt="avatar">
                 <div class="media-body">
-                  <div class="float-right text-primary">Now</div>
-                  <div class="media-title">Farhan A Mujib</div>
-                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                  <div class="media-title">{{$data->user->first_name ." ". $data->user->last_name}}</div>
+                  <span class="text-small text-muted">{{$data->check_in}}</span>
                 </div>
               </li>
-              <li class="media">
-                <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-2.png" alt="avatar">
-                <div class="media-body">
-                  <div class="float-right">12m</div>
-                  <div class="media-title">Ujang Maman</div>
-                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-                </div>
-              </li>
-              <li class="media">
-                <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-3.png" alt="avatar">
-                <div class="media-body">
-                  <div class="float-right">17m</div>
-                  <div class="media-title">Rizal Fakhri</div>
-                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-                </div>
-              </li>
+                  
+              @empty
+                  <p>Kosong</p>
+              @endforelse
+            </ul>
             <div class="text-center pt-1 pb-1">
-              <a href="#" class="btn btn-primary btn-lg btn-round">
+              <a href="{{route('activityMember')}}" class="btn btn-primary btn-lg btn-round">
                 View All
               </a>
             </div>

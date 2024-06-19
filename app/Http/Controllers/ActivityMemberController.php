@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use App\Models\ActivityMember;
+
 use BaconQrCode\Encoder\QrCode;
 use SimpleSoftwareIO\QrCode\Facades\QrCode as QrCodeFacade;
-
-use Illuminate\Http\Request;
 
 class ActivityMemberController extends Controller
 {
     public function index()
     {
-        return view('admin.activityMember.index');
+        $datas = ActivityMember::with('user')->get();
+        return view('admin.activityMember.index',compact('datas'));
     }
 
     public function create()
@@ -22,24 +24,26 @@ class ActivityMemberController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'scans' => 'required|array',
-            'scans.*.user_id' => 'required|string',
-            'scans.*.date' => 'required|date',
-            'scans.*.check_in' => 'required|date_format:H:i:s',
-            'scans.*.check_out' => 'nullable|date_format:H:i:s',
-        ]);
+        $scanDataArray = $request->all();
+        $result = $scanDataArray[0];
 
-        foreach ($request->input('scans') as $scanData) {
-            $scan = new ActivityMember();
-            $scan->user_id = $scanData['user_id'];
-            $scan->date = $scanData['date'];
-            $scan->check_in = $scanData['check_in'];
-            $scan->check_out = $scanData['check_out'];
-            $scan->save();
+        // Menggunakan Carbon untuk mendapatkan tanggal dan waktu saat ini
+        $date = Carbon::now()->toDateString(); // Format 'date' sebagai YYYY-MM-DD
+        $checkIn = Carbon::now()->toDateTimeString(); // Format 'check_in' sebagai YYYY-MM-DD HH:MM:SS
+        
+        try {
+            // Menyimpan data ke dalam database menggunakan Eloquent
+            ActivityMember::create([
+                'user_id' => $result, // Menggunakan 'user_id' dari $result
+                'date' => $date,
+                'check_in' => $checkIn,
+            ]);
+
+            return response()->json(['success' => true, 'message' => 'Data berhasil disimpan']);
+        } catch (\Exception $e) {
+            // Mengembalikan respons jika terjadi kesalahan
+            return response()->json(['success' => false, 'message' => $e->getMessage()]);
         }
-
-        return redirect()->route('activityMember')->with('message', 'Data Berhasil Di Simpan');
     }
 
     public function edit()
