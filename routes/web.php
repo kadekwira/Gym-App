@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -70,9 +71,14 @@ Route::prefix('admin')->group(function () {
   Route::resource('/data-trainer',TrainerController::class);
   Route::resource('/data-class',KelasController::class);
   Route::resource('/tipe-class',KategoriClassController::class);
-  Route::get('/data-review', function () {
-    return view('admin.dataReview.index');
-  });
+
+  // Revie Gym
+  Route::get('/data-review', [ReviewController::class, 'index'])->name('reviewGym');
+  Route::get('/data-review/create', [ReviewController::class, 'create'])->name('createReview');
+  Route::post('/data-review/create', [ReviewController::class, 'store'])->name('saveReview');
+  Route::get('/data-review/edit/{reviewgym}', [ReviewController::class, 'edit'])->name('editReview');
+  Route::put('/data-review/edit/{reviewgym}', [ReviewController::class, 'update'])->name('updateReview');
+  Route::get('/data-review/destroy/{reviewgym}', [ReviewController::class, 'destroy'])->name('deleteReview');
 
   // Information Gym
   Route::get('/information-gym', [InformationController::class, 'index'])->name('informationGym');
@@ -80,7 +86,7 @@ Route::prefix('admin')->group(function () {
   Route::post('/information-gym/create', [InformationController::class, 'store'])->name('saveInformation');
   Route::get('/information-gym/edit/{informationgym}', [InformationController::class, 'edit'])->name('editInformation');
   Route::put('/information-gym/edit/{informationgym}', [InformationController::class, 'update'])->name('updateInformation');
-  Route::get('/information-gym/destroy/{infomationgym}', [InformationController::class, 'destroy'])->name('deleteInformation');
+  Route::get('/information-gym/destroy/{informationgym}', [InformationController::class, 'destroy'])->name('deleteInformation');
 
   // Activity Member
   Route::get('/activity-member', [ActivityMemberController::class, 'index'])->name('activityMember');

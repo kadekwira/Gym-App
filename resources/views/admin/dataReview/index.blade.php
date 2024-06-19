@@ -8,46 +8,50 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-          {{-- <div class="card-header">
-            <a href="#" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
-          </div> --}}
+          <div class="card-header">
+            <a href="{{route('createReview')}}" class="btn btn-icon btn-success ml-auto button-header-add"><i class="fas fa-plus"></i></a>
+          </div>
           <div class="card-body">
+            @if (Session::has('message'))
+              <script>
+                swal("Success", "{{Session::get('message')}}", 'success', {
+                  button: true,
+                  button: "OK",
+                });
+              </script>
+            @endif
             <div class="table-responsive">
               <table class="table table-striped" id="tableDataAdmin">
                 <thead>                                 
                   <tr class="text-center">
-                    <th >
-                      #
-                    </th>
-                    <th>Task Name</th>
-                    <th>Progress</th>
-                    <th>Members</th>
-                    <th>Due Date</th>
-                    <th>Status</th>
+                    <th>ID User</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>                                 
-                  <tr class="text-center">
-                    <td>
-                      1
-                    </td>
-                    <td>Create a mobile app</td>
-                    <td class="align-middle">
-                      <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                        <div class="progress-bar bg-success" data-width="100%"></div>
-                      </div>
-                    </td>
-                    <td>
-                      <img alt="image" src="assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                    </td>
-                    <td>2018-01-20</td>
-                    <td><div class="badge badge-success">Completed</div></td>
-                    <td>
-                      <a href="#" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                      <a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                    </td>
-                  </tr>
+                <tbody>
+                  @foreach ($reviewgym as $data)
+                    <tr>
+                      <td class="text-center align-middle">{{$data->user_id}}</td>
+                      <td class="text-center align-middle">{{$user[$data->user_id]->first_name}}</td>
+                      <td class="text-center align-middle">{{$user[$data->user_id]->last_name}}</td>
+                      <td class="text-center align-middle">
+                        @for ($x = 0; $x < $data->rating; $x++)
+                        ★
+                        @endfor
+                      </td>
+                      <td class="align-right">{!!$data->comment!!}</td>
+                      <td class="text-center align-middle">
+                        <div class="button">
+                          <a href="{{route('editReview', $data->id)}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                          <button onclick="confirmDelete({{$data->id}})" class="btn btn-icon btn-danger text-white"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -78,5 +82,20 @@
   $(function() {
     $('#tableDataAdmin').DataTable()
   })
+
+  function confirmDelete(id) {
+        swal({
+            title: 'Konfirmasi Hapus',
+            text: 'Apakah Anda yakin ingin menghapus data ini?',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then(function (willDelete) {
+            if (willDelete) {
+                // Redirect langsung ke rute deleteReview
+                window.location.href = "{{ route('deleteReview', ['reviewgym' => ':id']) }}".replace(':id', id);
+            }
+        });
+    }
 </script>
 @endsection

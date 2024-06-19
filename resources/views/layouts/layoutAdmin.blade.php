@@ -243,7 +243,7 @@
                                         Trial Harian</a></li>
                                 <li class="margin-left-neg"><a class="nav-link" href="{{route('data-class.index')}}"> <i
                                             class="fas fa-dumbbell"></i>Data Class</a></li>
-                                <li class="margin-left-neg"><a class="nav-link" href=""> <i class="fas fa-eye"></i>Data
+                                <li class="margin-left-neg"><a class="nav-link" href="{{route('reviewGym')}}"> <i class="fas fa-eye"></i>Data
                                         Review</a></li>
     
                             </ul>

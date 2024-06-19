@@ -50,11 +50,9 @@
                                             <td class="text-center align-middle">{{ $data->operational_time }}</td>
                                             <td class="text-center align-middle">
                                                 <div class="button">
-                                                    <a href="{{ route('editInformation', $data->id) }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i>
-                                                        Edit</a>
+                                                    <a href="{{ route('editInformation', $data->id) }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
                                                     <button onclick="confirmDelete({{ $data->id }})"
-                                                        class="btn btn-icon btn-danger"><i class="fa-solid fa-trash"></i>
-                                                        Delete</button>
+                                                        class="btn btn-icon btn-danger"><i class="fa-solid fa-trash"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -102,7 +100,7 @@
         }).then(function (willDelete) {
             if (willDelete) {
                 // Redirect langsung ke rute deleteInformation
-                window.location.href = "{{ route('deleteInformation', ['infomationgym' => $data->id]) }}";
+                window.location.href = "{{ route('deleteInformation', ['informationgym' => ':id']) }}".replace(':id', id);
             }
         });
     }
